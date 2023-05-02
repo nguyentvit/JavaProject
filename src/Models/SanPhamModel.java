@@ -21,7 +21,7 @@ public class SanPhamModel {
 		ResultSet result = stt.executeQuery(query);
 		while(result.next())
 		{
-			double GiaNhap = Double.parseDouble(result.getString("Gia"));
+			double GiaNhap = Double.parseDouble(result.getString("GiaNhap"));
 			double GiaBan = Double.parseDouble(result.getString("GiaBan"));
 			int SoLuong = Integer.parseInt(result.getString("SoLuong"));
 			SanPhams.add(new SanPham(result.getString("MaSanPham"),result.getString("MaPhanLoai"),result.getString("MaNhaSanXuat"),result.getString("TenSanPham"),GiaNhap,GiaBan,SoLuong,result.getBytes("HinhAnh")));

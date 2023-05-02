@@ -21,31 +21,142 @@ import javax.swing.table.DefaultTableModel;
 import DTO.ViewSanPham;
 import Models.ViewSanPhamModel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import View.ThemSp;
 
 public class TrangChu extends JFrame {
 	private JTable table;
 	private DefaultTableModel Table;
+	private JPanel panelTrangChu;
+    private JButton btnTrangCh;
 	public TrangChu() throws SQLException, IOException {
 		getContentPane().setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 304, 866, 247);
-		getContentPane().add(scrollPane);
+		JPanel panelMenu = new JPanel();
+		panelMenu.setBackground(new Color(121, 218, 255));
+		panelMenu.setBounds(0, 0, 179, 457);
+		getContentPane().add(panelMenu);
+		panelMenu.setLayout(null);
 		
+		JPanel panelLogo = new JPanel();
+		panelLogo.setBounds(10, 5, 159, 110);
+		panelMenu.add(panelLogo);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("E:\\PBL3_MAIN\\Icons\\icons8-online-store-100.png"));
+		panelLogo.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-online-store-100.png"));
+		panelLogo.add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("  Hóa Đơn");
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton.setIcon(new ImageIcon("E:\\PBL3_MAIN\\Icons\\icons8-paid-bill-20.png"));
+		btnNewButton.setBounds(10, 237, 159, 39);
+		panelMenu.add(btnNewButton);
+		
+		JPanel panelTrangChu = new JPanel();
+		panelTrangChu.setBackground(new Color(155, 255, 255));
+		panelTrangChu.setBounds(189, 0, 649, 457);
+		getContentPane().add(panelTrangChu);
+		panelTrangChu.setLayout(null);
+		
+		
+		JButton btnTrangCh = new JButton("  Trang Chủ ");
+		btnTrangCh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 try {
+					 ThemSp them = new ThemSp();
+					 JPanel themPanel = new JPanel();
+					 themPanel.add(them.getContentPane());
+					 panelTrangChu.add(themPanel);
+//					
+			        } catch (Exception ex) {
+			            ex.printStackTrace();
+			        }
+				
+			}
+		});
+		btnTrangCh.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnTrangCh.setIcon(new ImageIcon("E:\\PBL3_MAIN\\Icons\\icons8-home-30.png"));
+		btnTrangCh.setBounds(10, 139, 159, 39);
+		panelMenu.add(btnTrangCh);
+		
+		JButton btnSnPhm = new JButton("Sản Phẩm");
+		btnSnPhm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnSnPhm.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnSnPhm.setHorizontalAlignment(SwingConstants.LEFT);
+		btnSnPhm.setIcon(new ImageIcon("E:\\PBL3_MAIN\\Icons\\icons8-iphone-se-50.png"));
+		btnSnPhm.setBounds(10, 188, 159, 39);
+		panelMenu.add(btnSnPhm);
+		
+		JButton btnNewButton_5 = new JButton("Khách Hàng");
+		btnNewButton_5.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton_5.setIcon(new ImageIcon("E:\\PBL3_MAIN\\Icons\\icons8-customer-30.png"));
+		btnNewButton_5.setBounds(10, 286, 159, 39);
+		panelMenu.add(btnNewButton_5);
+		
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 150, 629, 247);
+		//getContentPane().add(scrollPane);
+		
+		
+		panelTrangChu.add(scrollPane);
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
+		
 		JButton btnThemSp = new JButton("Thêm sản phẩm");
-		btnThemSp.setBounds(62, 11, 131, 23);
-		getContentPane().add(btnThemSp);
+		btnThemSp.setBounds(35, 31, 131, 23);
+		panelTrangChu.add(btnThemSp);
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(334, 11, 89, 23);
-		getContentPane().add(btnNewButton_1);
+		JButton btnSua = new JButton("Sửa ");
+		btnSua.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 try {
+					 int row = table.getSelectedRow();
+						String id = (table.getModel().getValueAt(row, 0).toString());
+						ThemSp thsp = new ThemSp();
+						thsp.loadInfor(id);
+						thsp.setVisible(true);
+			        } catch (Exception ex) {
+			            ex.printStackTrace();
+			        }
+				
+				
+			}
+		});
+		btnSua.setBounds(229, 31, 89, 23);
+		panelTrangChu.add(btnSua);
 		
-		JButton btnNewButton_2 = new JButton("New button");
-		btnNewButton_2.setBounds(456, 11, 89, 23);
-		getContentPane().add(btnNewButton_2);
+		JButton btnXoa = new JButton("Xóa ");
+		btnXoa.setBounds(391, 31, 89, 23);
+		panelTrangChu.add(btnXoa);
+		
+		btnThemSp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 try {
+					    ThemSp them = new ThemSp();
+			            //TrangChu.this.setVisible(false);
+					    //them.setLocationRelativeTo(null);
+			            them.setSize(675,500);
+			            them.setVisible(true);
+			        } catch (Exception ex) {
+			            ex.printStackTrace();
+			        }
+			}
+		});
+		
 		loadData();
 	}
 	private void loadData() throws SQLException
