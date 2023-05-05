@@ -78,5 +78,9 @@ public class SanPham extends JFrame {
 		btnSua.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-edit-20.png"));
 		btnSua.setBounds(449, 32, 37, 29);
 		panel.add(btnSua);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(38, 122, 537, 213);
+		panel.add(scrollPane);
 	}
 }
