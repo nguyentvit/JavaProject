@@ -101,7 +101,7 @@ public class TrangChu extends JFrame {
 		
 		JButton btnNewButton_5 = new JButton("Khách Hàng");
 		btnNewButton_5.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton_5.setIcon(new ImageIcon("E:\\PBL3_MAIN\\Icons\\icons8-customer-30.png"));
+		btnNewButton_5.setIcon(new ImageIcon("E:\\PBL3_MAIN\\Icons\\icons8-customer-20.png"));
 		btnNewButton_5.setBounds(10, 286, 159, 39);
 		panelMenu.add(btnNewButton_5);
 		
