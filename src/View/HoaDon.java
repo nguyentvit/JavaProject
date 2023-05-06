@@ -53,7 +53,7 @@ public class HoaDon extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("HÓA ĐƠN ");
 		lblNewLabel.setBackground(new Color(205, 250, 252));
-		lblNewLabel.setIcon(new ImageIcon("E:\\PBL3_MAIN\\Icons\\icons8-paid-bill-20.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-paid-bill-20.png"));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel.setBounds(257, 10, 111, 38);
 		contentPane.add(lblNewLabel);
@@ -119,12 +119,12 @@ public class HoaDon extends JFrame {
 		contentPane.add(textField_3);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-save-20.png"));
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-save-20.png"));
 		btnNewButton.setBounds(243, 281, 45, 38);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-delete-20.png"));
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-delete-20.png"));
 		btnNewButton_1.setBounds(315, 281, 45, 38);
 		contentPane.add(btnNewButton_1);
 	}

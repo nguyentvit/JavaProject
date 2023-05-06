@@ -2,6 +2,7 @@ package View;
 
 import java.awt.Component;
 import java.awt.Image;
+import java.awt.Label;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -17,6 +18,7 @@ import javax.swing.UIManager;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 import DTO.ViewSanPham;
 import Models.ViewSanPhamModel;
@@ -48,16 +50,16 @@ public class TrangChu extends JFrame {
 		panelMenu.add(panelLogo);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("E:\\PBL3_MAIN\\Icons\\icons8-online-store-100.png"));
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-online-store-100.png"));
 		panelLogo.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-online-store-100.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-online-store-100.png"));
 		panelLogo.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("  Hóa Đơn");
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton.setIcon(new ImageIcon("E:\\PBL3_MAIN\\Icons\\icons8-paid-bill-20.png"));
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-paid-bill-20.png"));
 		btnNewButton.setBounds(10, 237, 159, 39);
 		panelMenu.add(btnNewButton);
 		
@@ -84,24 +86,34 @@ public class TrangChu extends JFrame {
 			}
 		});
 		btnTrangCh.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnTrangCh.setIcon(new ImageIcon("E:\\PBL3_MAIN\\Icons\\icons8-home-30.png"));
+		btnTrangCh.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-home-30.png"));
 		btnTrangCh.setBounds(10, 139, 159, 39);
 		panelMenu.add(btnTrangCh);
 		
 		JButton btnSnPhm = new JButton("Sản Phẩm");
 		btnSnPhm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Sanpham sp;
+				try {
+					sp = new Sanpham();
+					sp.ShowWinDow();
+				} catch (SQLException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 			}
 		});
 		btnSnPhm.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnSnPhm.setHorizontalAlignment(SwingConstants.LEFT);
-		btnSnPhm.setIcon(new ImageIcon("E:\\PBL3_MAIN\\Icons\\icons8-iphone-se-50.png"));
+		btnSnPhm.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-iphone-se-50.png"));
 		btnSnPhm.setBounds(10, 188, 159, 39);
 		panelMenu.add(btnSnPhm);
 		
 		JButton btnNewButton_5 = new JButton("Khách Hàng");
 		btnNewButton_5.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton_5.setIcon(new ImageIcon("E:\\PBL3_MAIN\\Icons\\icons8-customer-20.png"));
+		btnNewButton_5.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-customer-20.png"));
 		btnNewButton_5.setBounds(10, 286, 159, 39);
 		panelMenu.add(btnNewButton_5);
 		
@@ -115,51 +127,9 @@ public class TrangChu extends JFrame {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
-		
-		JButton btnThemSp = new JButton("Thêm sản phẩm");
-		btnThemSp.setBounds(35, 31, 131, 23);
-		panelTrangChu.add(btnThemSp);
-		
-		JButton btnSua = new JButton("Sửa ");
-		btnSua.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 try {
-					 int row = table.getSelectedRow();
-						String id = (table.getModel().getValueAt(row, 0).toString());
-						ThemSp thsp = new ThemSp();
-						thsp.loadInfor(id);
-						thsp.setVisible(true);
-			        } catch (Exception ex) {
-			            ex.printStackTrace();
-			        }
-				
-				
-			}
-		});
-		btnSua.setBounds(229, 31, 89, 23);
-		panelTrangChu.add(btnSua);
-		
-		JButton btnXoa = new JButton("Xóa ");
-		btnXoa.setBounds(391, 31, 89, 23);
-		panelTrangChu.add(btnXoa);
-		
-		btnThemSp.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				 try {
-					    ThemSp them = new ThemSp();
-			            //TrangChu.this.setVisible(false);
-					    //them.setLocationRelativeTo(null);
-			            them.setSize(675,500);
-			            them.setVisible(true);
-			        } catch (Exception ex) {
-			            ex.printStackTrace();
-			        }
-			}
-		});
-		
 		loadData();
 	}
-	private void loadData() throws SQLException
+	private void loadData() throws SQLException, IOException
 	{
 		ViewSanPhamModel Viewsp = new ViewSanPhamModel();
 		Table = new DefaultTableModel() {
@@ -183,20 +153,19 @@ public class TrangChu extends JFrame {
 		
 		for(ViewSanPham sp : Viewsp.GetAllViewSanPham())
 		{
+			JLabel lbl1 = new JLabel();
+			JLabel lbl;
+			ImageIcon image1;
 			DecimalFormat formatter = new DecimalFormat("0");
-			BufferedImage hinhAnh = null;
-			if(sp.getHinhAnh() != null)
+			if(sp.HinhAnh!= null)
 			{
-				try {
-					
-					ByteArrayInputStream bis = new ByteArrayInputStream(sp.getHinhAnh());
-					hinhAnh = ImageIO.read(bis);
-					bis.close();
-				}
-				catch(Exception e)
-				{
-					e.printStackTrace();
-				}
+				
+				ByteArrayInputStream bais = new ByteArrayInputStream(sp.HinhAnh);
+				BufferedImage image = ImageIO.read(bais);
+				ImageIcon scaledIcon = new ImageIcon(image);
+				lbl = new JLabel(scaledIcon);
+				lbl1 = lbl;
+				image1 = scaledIcon;
 			}
 			Table.addRow(new Object[]
 					{
@@ -208,20 +177,43 @@ public class TrangChu extends JFrame {
 							sp.getSoLuong(),
 							formatter.format(sp.getGiaNhap()),
 							formatter.format(sp.getGiaBan()),
-							hinhAnh
+							sp.getHinhAnh()
 					});
 		}
 		table.setModel(Table);
-		table.getTableHeader().setReorderingAllowed(false);
+		table.getColumnModel().getColumn(1).setMinWidth(0);
+		table.getColumnModel().getColumn(1).setMaxWidth(0);
 		
+		table.getColumnModel().getColumn(5).setMinWidth(0);
+		table.getColumnModel().getColumn(5).setMaxWidth(0);
+		
+		table.getColumnModel().getColumn(6).setMinWidth(0);
+		table.getColumnModel().getColumn(6).setMaxWidth(0);
+		
+
+		table.getTableHeader().setReorderingAllowed(false);
 		table.setRowHeight(50);
+		table.getTableHeader().setReorderingAllowed(false);
+		table.getColumnModel().getColumn(8).setCellRenderer(new ImageRender());
 	}
 	
+	private class ImageRender extends DefaultTableCellRenderer{
+
+		@Override
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+				int row, int column) {
+			byte[]bytes = (byte[])value;
+			ImageIcon imageIcon = new ImageIcon(bytes);
+			setIcon(imageIcon);
+			return this;
+		}
+		
+	}
 	public void ShowWinDow()
 	{
 		
 		this.setVisible(true);
-		this.setSize(900, 600);
+		this.setSize(847, 488);
 		this.setLocationRelativeTo(null);
 		
 	}

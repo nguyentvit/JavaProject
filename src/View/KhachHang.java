@@ -53,22 +53,22 @@ public class KhachHang extends JFrame {
 		contentPane.add(cbbDong);
 		
 		JButton btnTim = new JButton("");
-		btnTim.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-find-20.png"));
+		btnTim.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-find-20.png"));
 		btnTim.setBounds(223, 20, 37, 29);
 		contentPane.add(btnTim);
 		
 		JButton btnThem = new JButton("");
-		btnThem.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-add-20.png"));
+		btnThem.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-add-20.png"));
 		btnThem.setBounds(402, 20, 37, 29);
 		contentPane.add(btnThem);
 		
 		JButton btnSua = new JButton("");
-		btnSua.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-edit-20.png"));
+		btnSua.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-edit-20.png"));
 		btnSua.setBounds(449, 20, 37, 29);
 		contentPane.add(btnSua);
 		
 		JButton btnXoa = new JButton("");
-		btnXoa.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-delete-20.png"));
+		btnXoa.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-delete-20.png"));
 		btnXoa.setBounds(496, 20, 37, 29);
 		contentPane.add(btnXoa);
 	}

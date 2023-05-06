@@ -21,4 +21,58 @@ public class ViewSanPhamModel {
 		}		
 		return list;
 	}
+	public List<ViewSanPham>GetViewSanPhamByIdPhanLoai(String idPhanLoai) throws SQLException
+	{
+		List<ViewSanPham> list = new ArrayList<ViewSanPham>();
+		SanPhamModel sp = new SanPhamModel();
+		NhaSanXuatModel nsx = new NhaSanXuatModel();
+		PhanLoaiModel pl = new PhanLoaiModel();
+		int i=0;
+		for(SanPham s: sp.GetAllSanPham())
+		{
+			if(idPhanLoai.equals("-1"))
+			{
+				list.add(new ViewSanPham(++i,s.getMaSanPham(),s.getTenSanPham(),nsx.GetTenNhaSx(s.getMaNhaSanXuat()),pl.GetTenPhanLoaiById(s.getMaPhanLoai()),s.getSoLuong(),s.getGiaNhap(),s.getGiaBan(),s.getHinhAnh()));
+
+			}
+			else if(s.getMaPhanLoai().equals(idPhanLoai))
+			{
+				list.add(new ViewSanPham(++i,s.getMaSanPham(),s.getTenSanPham(),nsx.GetTenNhaSx(s.getMaNhaSanXuat()),pl.GetTenPhanLoaiById(s.getMaPhanLoai()),s.getSoLuong(),s.getGiaNhap(),s.getGiaBan(),s.getHinhAnh()));
+
+			}
+		}
+		return list;
+	}
+	public List<ViewSanPham>GetViewSanPhamByIdNhaSx(String idNhaSx) throws SQLException
+	{
+		List<ViewSanPham> list = new ArrayList<ViewSanPham>();
+		SanPhamModel sp = new SanPhamModel();
+		NhaSanXuatModel nsx = new NhaSanXuatModel();
+		PhanLoaiModel pl = new PhanLoaiModel();
+		int i=0;
+		for(SanPham s: sp.GetAllSanPham())
+		{
+			if(idNhaSx.equals("-1"))
+			{
+				list.add(new ViewSanPham(++i,s.getMaSanPham(),s.getTenSanPham(),nsx.GetTenNhaSx(s.getMaNhaSanXuat()),pl.GetTenPhanLoaiById(s.getMaPhanLoai()),s.getSoLuong(),s.getGiaNhap(),s.getGiaBan(),s.getHinhAnh()));
+
+			}
+			else if(s.getMaNhaSanXuat().equals(idNhaSx))
+			{
+				list.add(new ViewSanPham(++i,s.getMaSanPham(),s.getTenSanPham(),nsx.GetTenNhaSx(s.getMaNhaSanXuat()),pl.GetTenPhanLoaiById(s.getMaPhanLoai()),s.getSoLuong(),s.getGiaNhap(),s.getGiaBan(),s.getHinhAnh()));
+
+			}
+		}
+		return list;
+	}
+	public List<ViewSanPham>GetViewSanPhamByTimKiem(String idPhanLoai,String idNhaSx) throws SQLException
+	{
+		
+		List<ViewSanPham> listIdPhanLoai = GetViewSanPhamByIdPhanLoai(idPhanLoai);
+		List<ViewSanPham> listIdNhaSx = GetViewSanPhamByIdNhaSx(idNhaSx);
+		List<ViewSanPham> list = new ArrayList<ViewSanPham>(listIdPhanLoai);
+		list.retainAll(listIdNhaSx);
+		return list;
+	}
+	
 }

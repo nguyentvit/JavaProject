@@ -80,6 +80,31 @@ public class ViewSanPham {
 	public ViewSanPham() {
 		super();
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+        int result = 1;
+        result = prime * result
+                + ((MaSanPham == null) ? 0 : MaSanPham.hashCode());
+        return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final ViewSanPham other = (ViewSanPham) obj;
+        if (MaSanPham == null) {
+            if (other.MaSanPham != null)
+                return false;
+        } else if (!MaSanPham.equals(other.MaSanPham))
+            return false;
+        return true;
+	}
+	
 	
 	
 }

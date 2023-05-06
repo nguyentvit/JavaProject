@@ -11,8 +11,10 @@ import DTO.ComboItem;
 import DocCsdl.DocCsdl;
 import Entities.NhaSanXuat;
 import Entities.PhanLoai;
+import Entities.SanPham;
 import Models.NhaSanXuatModel;
 import Models.PhanLoaiModel;
+import Models.SanPhamModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,6 +30,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.awt.event.ActionEvent;
 import java.awt.Canvas;
 import java.awt.Color;
@@ -102,7 +105,12 @@ public class ThemSp extends JFrame{
 		 btnXacNhan = new JButton("Xác nhận");
 		 btnXacNhan.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
-		 		btnXacNhan_actionPerformed(e);
+		 		try {
+					btnXacNhan_actionPerformed(e);
+				} catch (SQLException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 		 	}
 		 });
 		btnXacNhan.setBounds(151, 278, 89, 23);
@@ -111,7 +119,15 @@ public class ThemSp extends JFrame{
 		JButton btnHuy = new JButton("Hủy");
 		btnHuy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
+				dispose();
+				try {
+					Sanpham s = new Sanpham();
+					s.ShowWinDow();
+				} catch (SQLException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 			}
 			
 		});
@@ -202,7 +218,71 @@ public class ThemSp extends JFrame{
 		};
 			
 	}
-	public void btnXacNhan_actionPerformed(ActionEvent e) {
- 		
+	private boolean CheckHopLe()
+	{
+		if(txtTenSp.getText() == "")
+		{
+			return false;
+		}
+		if(txtGiaBan.getText() == "")
+		{
+			return false;
+		}
+		if(txtGiaNhap.getText() == "")
+		{
+			return false;
+		}
+		if(txtSoLuong.getText() == "")
+		{
+			return false;
+		}
+		try {
+			Double.parseDouble(txtGiaBan.getText());
+			Double.parseDouble(txtGiaNhap.getText());
+			Integer.parseInt(txtSoLuong.getText());
+		}
+		catch(NumberFormatException e)
+		{
+			return false;
+		}
+		return true;
+		
+				
+	}
+	public void btnXacNhan_actionPerformed(ActionEvent e) throws SQLException, IOException {
+ 		if(CheckHopLe())
+ 		{
+ 			SanPhamModel spm = new SanPhamModel();
+ 			SanPham sp = new SanPham();
+ 			sp.setMaSanPham(spm.TaoIdSanPham());
+ 			//String maPhanLoai = 
+ 			sp.setMaPhanLoai(((ComboItem)(cbbPhanLoai.getSelectedItem())).getKey());
+ 			sp.setMaNhaSanXuat(((ComboItem)(cbbNhaSx.getSelectedItem())).getKey());
+ 			sp.setTenSanPham(txtTenSp.getText());
+ 			sp.setGiaNhap(Double.parseDouble(txtGiaNhap.getText()));
+ 			sp.setGiaBan(Double.parseDouble(txtGiaBan.getText()));
+ 			sp.setSoLuong(Integer.parseInt(txtSoLuong.getText()));
+ 			if(file != null)
+ 			{			
+ 				sp.setHinhAnh(Files.readAllBytes(file.toPath()));
+ 			}
+ 			spm.AddSanPham(sp);
+ 			JOptionPane.showMessageDialog(null,"Thêm sản phẩm thành công","Thông báo",JOptionPane.INFORMATION_MESSAGE);
+ 			dispose();
+ 			Sanpham s = new Sanpham();
+ 			s.ShowWinDow();
+ 			
+ 		}
+ 		else {
+ 			JOptionPane.showMessageDialog(null,"Thông tin không hợp lệ","Thông báo",JOptionPane.INFORMATION_MESSAGE);
+ 		}
+ 			
  	}
+	public void ShowWinDow()
+	{
+		this.setVisible(true);
+		this.setSize(847, 488);
+		this.setLocationRelativeTo(null);
+		
+	}
 }
