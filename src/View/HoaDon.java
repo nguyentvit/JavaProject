@@ -8,19 +8,17 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.ImageIcon;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import com.toedter.calendar.JDateChooser;
+import javax.swing.JTable;
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 
 public class HoaDon extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
 
 	/**
 	 * Launch the application.
@@ -43,89 +41,56 @@ public class HoaDon extends JFrame {
 	 */
 	public HoaDon() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 656, 380);
+		setBounds(100, 100, 683, 376);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(185, 248, 251));
+		contentPane.setBackground(new Color(182, 239, 248));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("HÓA ĐƠN ");
-		lblNewLabel.setBackground(new Color(205, 250, 252));
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-paid-bill-20.png"));
+		JLabel lblNewLabel = new JLabel("DANH SÁCH HÓA ĐƠN");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel.setBounds(257, 10, 111, 38);
+		lblNewLabel.setBounds(258, 10, 142, 25);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Ngày ");
-		lblNewLabel_1.setBounds(50, 180, 45, 13);
-		contentPane.add(lblNewLabel_1);
+		JButton btnXoa = new JButton("");
+		btnXoa.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-delete-20.png"));
+		btnXoa.setBounds(598, 63, 37, 29);
+		contentPane.add(btnXoa);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Số Lượng ");
-		lblNewLabel_1_1.setBounds(332, 229, 59, 13);
-		contentPane.add(lblNewLabel_1_1);
+		JButton btnSua = new JButton("");
+		btnSua.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-edit-20.png"));
+		btnSua.setBounds(551, 63, 37, 29);
+		contentPane.add(btnSua);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(31, 117, 604, 197);
+		contentPane.add(scrollPane);
+		
+		JComboBox cbbHang = new JComboBox();
+		cbbHang.setBounds(31, 71, 83, 21);
+		contentPane.add(cbbHang);
+		
+		JComboBox cbbDong = new JComboBox();
+		cbbDong.setBounds(135, 71, 83, 21);
+		contentPane.add(cbbDong);
+		
+		JButton btnTim = new JButton("");
+		btnTim.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-find-20.png"));
+		btnTim.setBounds(363, 63, 37, 29);
+		contentPane.add(btnTim);
 		
 		textField = new JTextField();
-		textField.setBounds(123, 72, 96, 19);
+		textField.setBounds(242, 72, 96, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
+	}
+	public void ShowWinDow()
+	{
+		this.setVisible(true);
+		this.setSize(847, 488);
+		this.setLocationRelativeTo(null);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(123, 126, 96, 19);
-		contentPane.add(textField_1);
-		
-		JLabel lblNewLabel_1_2 = new JLabel("Hãng");
-		lblNewLabel_1_2.setBounds(332, 75, 45, 13);
-		contentPane.add(lblNewLabel_1_2);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(441, 71, 96, 21);
-		contentPane.add(comboBox);
-		
-		JLabel lblNewLabel_1_2_1 = new JLabel("Tên SP");
-		lblNewLabel_1_2_1.setBounds(332, 129, 45, 13);
-		contentPane.add(lblNewLabel_1_2_1);
-		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(441, 125, 96, 21);
-		contentPane.add(comboBox_1);
-		
-		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(123, 180, 96, 19);
-		contentPane.add(dateChooser);
-		
-		JLabel lblNewLabel_1_3 = new JLabel("SĐT");
-		lblNewLabel_1_3.setBounds(50, 129, 45, 13);
-		contentPane.add(lblNewLabel_1_3);
-		
-		JLabel lblNewLabel_1_4 = new JLabel("Giá");
-		lblNewLabel_1_4.setBounds(332, 180, 45, 13);
-		contentPane.add(lblNewLabel_1_4);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(441, 177, 96, 19);
-		contentPane.add(textField_2);
-		
-		JLabel lblNewLabel_1_5 = new JLabel("Tên KH\r\n");
-		lblNewLabel_1_5.setBounds(50, 72, 45, 13);
-		contentPane.add(lblNewLabel_1_5);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(441, 226, 96, 19);
-		contentPane.add(textField_3);
-		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-save-20.png"));
-		btnNewButton.setBounds(243, 281, 45, 38);
-		contentPane.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-delete-20.png"));
-		btnNewButton_1.setBounds(315, 281, 45, 38);
-		contentPane.add(btnNewButton_1);
 	}
 }

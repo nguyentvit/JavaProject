@@ -10,33 +10,21 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import java.awt.Font;
 
 public class KhachHang extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					KhachHang frame = new KhachHang();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public KhachHang() {
+	public KhachHang() throws SQLException, IOException{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 619, 300);
+		setBounds(100, 100, 663, 375);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(196, 234, 251));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -45,31 +33,61 @@ public class KhachHang extends JFrame {
 		contentPane.setLayout(null);
 		
 		JComboBox cbbHang = new JComboBox();
-		cbbHang.setBounds(38, 20, 83, 21);
+		cbbHang.setBounds(22, 47, 83, 21);
 		contentPane.add(cbbHang);
 		
 		JComboBox cbbDong = new JComboBox();
-		cbbDong.setBounds(131, 20, 83, 21);
+		cbbDong.setBounds(115, 47, 83, 21);
 		contentPane.add(cbbDong);
 		
 		JButton btnTim = new JButton("");
-		btnTim.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-find-20.png"));
-		btnTim.setBounds(223, 20, 37, 29);
+		btnTim.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-find-20.png"));
+		btnTim.setBounds(320, 47, 37, 29);
 		contentPane.add(btnTim);
 		
-		JButton btnThem = new JButton("");
-		btnThem.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-add-20.png"));
-		btnThem.setBounds(402, 20, 37, 29);
-		contentPane.add(btnThem);
-		
 		JButton btnSua = new JButton("");
-		btnSua.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-edit-20.png"));
-		btnSua.setBounds(449, 20, 37, 29);
+		btnSua.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-edit-20.png"));
+		btnSua.setBounds(495, 47, 37, 29);
 		contentPane.add(btnSua);
 		
 		JButton btnXoa = new JButton("");
-		btnXoa.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-delete-20.png"));
-		btnXoa.setBounds(496, 20, 37, 29);
+		btnXoa.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-delete-20.png"));
+		btnXoa.setBounds(542, 47, 37, 29);
 		contentPane.add(btnXoa);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(22, 86, 604, 179);
+		contentPane.add(scrollPane);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		textField.setBounds(208, 48, 96, 19);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnTrV = new JButton("");
+		btnTrV.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TrangChu tc;
+				try {
+					tc = new TrangChu();
+					tc.ShowWinDow();
+				} catch (SQLException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			
+		});
+		btnTrV.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
+		btnTrV.setBounds(589, 47, 37, 29);
+		contentPane.add(btnTrV);
+	}
+	public void ShowWinDow() {
+		// TODO Auto-generated method stub
+		this.setVisible(true);
+		this.setSize(730, 500);
+		this.setLocationRelativeTo(null);
 	}
 }

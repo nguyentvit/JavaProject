@@ -51,58 +51,60 @@ public class ThemSp extends JFrame{
 		
 		
 		JLabel lblNewLabel = new JLabel("Loại sản phẩm");
-		lblNewLabel.setBounds(117, 28, 79, 22);
+		lblNewLabel.setBounds(49, 27, 79, 22);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nhà sản xuất");
-		lblNewLabel_1.setBounds(117, 60, 79, 22);
+		lblNewLabel_1.setBounds(49, 59, 79, 22);
 		getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Tên sản phẩm");
-		lblNewLabel_1_1.setBounds(117, 92, 79, 22);
+		lblNewLabel_1_1.setBounds(49, 91, 79, 22);
 		getContentPane().add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Giá nhập");
-		lblNewLabel_1_2.setBounds(117, 136, 79, 22);
+		lblNewLabel_1_2.setBounds(49, 135, 79, 22);
 		getContentPane().add(lblNewLabel_1_2);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("Giá bán");
-		lblNewLabel_1_3.setBounds(117, 176, 79, 22);
+		lblNewLabel_1_3.setBounds(49, 175, 79, 22);
 		getContentPane().add(lblNewLabel_1_3);
 		
 		JLabel lblNewLabel_1_4 = new JLabel("Số lượng");
-		lblNewLabel_1_4.setBounds(117, 218, 79, 22);
+		lblNewLabel_1_4.setBounds(49, 217, 79, 22);
 		getContentPane().add(lblNewLabel_1_4);
 		
 		cbbPhanLoai = new JComboBox();
-		cbbPhanLoai.setBounds(213, 28, 125, 22);
+		cbbPhanLoai.setBounds(145, 27, 125, 22);
 		getContentPane().add(cbbPhanLoai);
 		
 		cbbNhaSx = new JComboBox();
-		cbbNhaSx.setBounds(213, 60, 125, 22);
+		cbbNhaSx.setBounds(145, 59, 125, 22);
 		getContentPane().add(cbbNhaSx);
 		
 		txtTenSp = new JTextField();
-		txtTenSp.setBounds(213, 99, 125, 20);
+		txtTenSp.setBounds(145, 98, 125, 20);
 		getContentPane().add(txtTenSp);
 		txtTenSp.setColumns(10);
 		
 		txtGiaNhap = new JTextField();
 		txtGiaNhap.setColumns(10);
-		txtGiaNhap.setBounds(213, 138, 125, 20);
+		txtGiaNhap.setBounds(145, 137, 125, 20);
 		getContentPane().add(txtGiaNhap);
 		
 		txtGiaBan = new JTextField();
 		txtGiaBan.setColumns(10);
-		txtGiaBan.setBounds(213, 178, 125, 20);
+		txtGiaBan.setBounds(145, 177, 125, 20);
 		getContentPane().add(txtGiaBan);
 		
 		txtSoLuong = new JTextField();
 		txtSoLuong.setColumns(10);
-		txtSoLuong.setBounds(213, 220, 125, 20);
+		txtSoLuong.setBounds(145, 219, 125, 20);
 		getContentPane().add(txtSoLuong);
 		
-		 btnXacNhan = new JButton("Xác nhận");
+		 btnXacNhan = new JButton("");
+		 btnXacNhan.setBackground(new Color(0, 128, 192));
+		 btnXacNhan.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-checkmark-25.png"));
 		 btnXacNhan.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
 		 		try {
@@ -113,10 +115,12 @@ public class ThemSp extends JFrame{
 				}
 		 	}
 		 });
-		btnXacNhan.setBounds(151, 278, 89, 23);
+		btnXacNhan.setBounds(162, 267, 42, 33);
 		getContentPane().add(btnXacNhan);
 		
-		JButton btnHuy = new JButton("Hủy");
+		JButton btnHuy = new JButton("");
+		btnHuy.setBackground(new Color(225, 38, 71));
+		btnHuy.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-close-20.png"));
 		btnHuy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -131,12 +135,14 @@ public class ThemSp extends JFrame{
 			}
 			
 		});
-		btnHuy.setBounds(267, 278, 89, 23);
+		btnHuy.setBounds(222, 267, 35, 33);
 		getContentPane().add(btnHuy);
 		
 		
 		
-		btnAnh = new JButton("Ảnh");
+		btnAnh = new JButton("");
+		btnAnh.setBackground(new Color(0, 183, 183));
+		btnAnh.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-add-image-20.png"));
 		btnAnh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -147,7 +153,7 @@ public class ThemSp extends JFrame{
 				}
 			}
 		});
-		btnAnh.setBounds(440, 218, 89, 23);
+		btnAnh.setBounds(416, 217, 79, 33);
 		getContentPane().add(btnAnh);
 		
 		

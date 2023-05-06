@@ -34,6 +34,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class Sanpham extends JFrame {
 
@@ -41,6 +42,7 @@ public class Sanpham extends JFrame {
 	private JTable table;
 	private DefaultTableModel Table;
 	private JComboBox cbbPhanLoai, cbbNhaSx;
+	private JTextField textField;
 
 
 	/**
@@ -80,11 +82,11 @@ public class Sanpham extends JFrame {
 		panel.setLayout(null);
 		
 		 cbbNhaSx = new JComboBox();
-		cbbNhaSx.setBounds(38, 32, 83, 21);
+		cbbNhaSx.setBounds(22, 32, 83, 21);
 		panel.add(cbbNhaSx);
 		
 		 cbbPhanLoai = new JComboBox();
-		cbbPhanLoai.setBounds(131, 32, 83, 21);
+		cbbPhanLoai.setBounds(115, 32, 83, 21);
 		panel.add(cbbPhanLoai);
 
 		JButton btnTim = new JButton("");
@@ -98,47 +100,29 @@ public class Sanpham extends JFrame {
 				}
 			}
 		});
-		btnTim.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-find-20.png"));
-		btnTim.setBounds(223, 32, 37, 21);
+		btnTim.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-find-20.png"));
+		btnTim.setBounds(301, 32, 37, 21);
 		panel.add(btnTim);
 		
-		JButton btnThem = new JButton("");
-		btnThem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				ThemSp t;
-				try {
-					t = new ThemSp();
-					t.ShowWinDow();
-				} catch (SQLException | IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-			}
-		});
-		btnThem.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-add-20.png"));
-		btnThem.setBounds(402, 32, 37, 29);
-		panel.add(btnThem);
-		
 		JButton btnXoa = new JButton("");
-		btnXoa.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-delete-20.png"));
-		btnXoa.setBounds(496, 32, 37, 29);
+		btnXoa.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-delete-20.png"));
+		btnXoa.setBounds(567, 32, 37, 29);
 		panel.add(btnXoa);
 		
 		JButton btnSua = new JButton("");
-		btnSua.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-edit-20.png"));
-		btnSua.setBounds(449, 32, 37, 29);
+		btnSua.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-edit-20.png"));
+		btnSua.setBounds(520, 32, 37, 29);
 		panel.add(btnSua);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(38, 114, 629, 292);
+		scrollPane.setBounds(22, 104, 629, 243);
 		panel.add(scrollPane);
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
-		JButton btnTrV = new JButton("trở về");
+		JButton btnTrV = new JButton("");
+		btnTrV.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
 		btnTrV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -153,8 +137,32 @@ public class Sanpham extends JFrame {
 				
 			}
 		});
-		btnTrV.setBounds(543, 31, 91, 29);
+		btnTrV.setBounds(614, 32, 37, 29);
 		panel.add(btnTrV);
+		
+		textField = new JTextField();
+		textField.setBounds(208, 33, 83, 19);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnThem_1 = new JButton("");
+		btnThem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ThemSp t;
+				try {
+					t = new ThemSp();
+					t.ShowWinDow();
+				} catch (SQLException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		btnThem_1.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-add-20.png"));
+		btnThem_1.setBounds(473, 32, 37, 29);
+		panel.add(btnThem_1);
 		loadData(null);
 		SetCbb();
 	}
