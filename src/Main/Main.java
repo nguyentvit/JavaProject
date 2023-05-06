@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import Models.SanPhamModel;
+import View.MuaHang;
 import View.Sanpham;
 import View.ThemSp;
 import View.TrangChu;
@@ -11,8 +12,8 @@ import View.TrangChu;
 public class Main {
 
 	public static void main(String[] args) throws SQLException, IOException  {
-	   TrangChu tc = new TrangChu();
-		Sanpham sp = new Sanpham();
+	   MuaHang tc = new MuaHang();
+		//Sanpham sp = new Sanpham();
 		tc.ShowWinDow();
 		//sp.ShowWinDow();
 	}

@@ -41,17 +41,17 @@ public class KhachHang extends JFrame {
 		contentPane.add(cbbDong);
 		
 		JButton btnTim = new JButton("");
-		btnTim.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-find-20.png"));
+		btnTim.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-find-20.png"));
 		btnTim.setBounds(320, 47, 37, 29);
 		contentPane.add(btnTim);
 		
 		JButton btnSua = new JButton("");
-		btnSua.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-edit-20.png"));
+		btnSua.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-edit-20.png"));
 		btnSua.setBounds(495, 47, 37, 29);
 		contentPane.add(btnSua);
 		
 		JButton btnXoa = new JButton("");
-		btnXoa.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-delete-20.png"));
+		btnXoa.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-delete-20.png"));
 		btnXoa.setBounds(542, 47, 37, 29);
 		contentPane.add(btnXoa);
 		
@@ -80,7 +80,7 @@ public class KhachHang extends JFrame {
 			}
 			
 		});
-		btnTrV.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
+		btnTrV.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-back-20.png"));
 		btnTrV.setBounds(589, 47, 37, 29);
 		contentPane.add(btnTrV);
 	}

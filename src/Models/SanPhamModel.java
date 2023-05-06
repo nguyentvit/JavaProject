@@ -45,6 +45,14 @@ public class SanPhamModel {
 		prepare.executeUpdate();
 		
 	}
+	public SanPham GetSanPhamByIdSanPham(String id) throws SQLException
+	{
+		for(SanPham s : GetAllSanPham())
+		{
+			if(s.getMaSanPham().equals(id))return s;
+		}
+		return null;
+	}
 	public String TaoIdSanPham() throws SQLException
 	{
 		String id = "";

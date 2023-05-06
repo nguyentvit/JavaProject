@@ -55,12 +55,12 @@ public class HoaDon extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnXoa = new JButton("");
-		btnXoa.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-delete-20.png"));
+		btnXoa.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-delete-20.png"));
 		btnXoa.setBounds(598, 63, 37, 29);
 		contentPane.add(btnXoa);
 		
 		JButton btnSua = new JButton("");
-		btnSua.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-edit-20.png"));
+		btnSua.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-edit-20.png"));
 		btnSua.setBounds(551, 63, 37, 29);
 		contentPane.add(btnSua);
 		
@@ -77,7 +77,7 @@ public class HoaDon extends JFrame {
 		contentPane.add(cbbDong);
 		
 		JButton btnTim = new JButton("");
-		btnTim.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-find-20.png"));
+		btnTim.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-find-20.png"));
 		btnTim.setBounds(363, 63, 37, 29);
 		contentPane.add(btnTim);
 		

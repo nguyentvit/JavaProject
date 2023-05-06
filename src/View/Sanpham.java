@@ -100,17 +100,17 @@ public class Sanpham extends JFrame {
 				}
 			}
 		});
-		btnTim.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-find-20.png"));
+		btnTim.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-find-20.png"));
 		btnTim.setBounds(301, 32, 37, 21);
 		panel.add(btnTim);
 		
 		JButton btnXoa = new JButton("");
-		btnXoa.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-delete-20.png"));
+		btnXoa.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-delete-20.png"));
 		btnXoa.setBounds(567, 32, 37, 29);
 		panel.add(btnXoa);
 		
 		JButton btnSua = new JButton("");
-		btnSua.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-edit-20.png"));
+		btnSua.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-edit-20.png"));
 		btnSua.setBounds(520, 32, 37, 29);
 		panel.add(btnSua);
 		
@@ -122,7 +122,7 @@ public class Sanpham extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		JButton btnTrV = new JButton("");
-		btnTrV.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
+		btnTrV.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-back-20.png"));
 		btnTrV.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -160,7 +160,7 @@ public class Sanpham extends JFrame {
 				
 			}
 		});
-		btnThem_1.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-add-20.png"));
+		btnThem_1.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-add-20.png"));
 		btnThem_1.setBounds(473, 32, 37, 29);
 		panel.add(btnThem_1);
 		loadData(null);

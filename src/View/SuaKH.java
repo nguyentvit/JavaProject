@@ -45,12 +45,12 @@ public class SuaKH extends JFrame {
 		contentPane.add(textField_1);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-checkmark-25.png"));
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-checkmark-25.png"));
 		btnNewButton.setBounds(177, 138, 33, 33);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-close-20.png"));
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-close-20.png"));
 		btnNewButton_1.setBounds(220, 138, 33, 33);
 		contentPane.add(btnNewButton_1);
 		

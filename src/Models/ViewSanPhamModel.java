@@ -74,5 +74,13 @@ public class ViewSanPhamModel {
 		list.retainAll(listIdNhaSx);
 		return list;
 	}
+	public ViewSanPham GetViewSanPhamByIdSanPham(String idSanPham) throws SQLException
+	{
+		for(ViewSanPham s : GetAllViewSanPham())
+		{
+			if(s.getMaSanPham().equals(idSanPham))return s;
+		}
+		return null;
+	}
 	
 }

@@ -5,29 +5,46 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import com.toedter.calendar.JDateChooser;
+
+import DTO.ViewSanPham;
+import Entities.SanPham;
+import Models.SanPhamModel;
+import Models.ViewSanPhamModel;
+
+
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
 
 public class ChiTietHoaDon extends JFrame {
-
+	private List<ViewSanPham>SanPhamMua;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -36,8 +53,8 @@ public class ChiTietHoaDon extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ChiTietHoaDon frame = new ChiTietHoaDon();
-					frame.setVisible(true);
+					//ChiTietHoaDon frame = new ChiTietHoaDon(SanPhamMua);
+					//frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -48,7 +65,8 @@ public class ChiTietHoaDon extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ChiTietHoaDon() throws SQLException, IOException{
+	public ChiTietHoaDon(List<ViewSanPham> mylist) throws SQLException, IOException{
+		this.SanPhamMua = mylist;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 739, 421);
 		contentPane = new JPanel();
@@ -60,7 +78,7 @@ public class ChiTietHoaDon extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("CHI TIẾT HÓA ĐƠN");
 		lblNewLabel.setBackground(new Color(205, 250, 252));
-		lblNewLabel.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-paid-bill-20.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-paid-bill-20.png"));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel.setBounds(281, 10, 153, 38);
 		contentPane.add(lblNewLabel);
@@ -110,18 +128,14 @@ public class ChiTietHoaDon extends JFrame {
 		contentPane.add(textField_3);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-checkmark-25.png"));
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-checkmark-25.png"));
 		btnNewButton.setBounds(280, 322, 45, 38);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-close-20.png"));
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-close-20.png"));
 		btnNewButton_1.setBounds(335, 322, 45, 38);
 		contentPane.add(btnNewButton_1);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(262, 72, 432, 215);
-		contentPane.add(scrollPane);
 		
 		JButton btnTrV = new JButton("");
 		btnTrV.addActionListener(new ActionListener() {
@@ -137,9 +151,71 @@ public class ChiTietHoaDon extends JFrame {
 				}
 			}
 		});
-		btnTrV.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
+		btnTrV.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-back-20.png"));
 		btnTrV.setBounds(657, 20, 37, 29);
 		contentPane.add(btnTrV);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(294, 72, 400, 213);
+		contentPane.add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		LoadForm();
+	}
+	private void LoadForm() throws SQLException
+	{
+		ViewSanPhamModel spm = new ViewSanPhamModel();
+		DefaultTableModel Table = new DefaultTableModel() {
+
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+			
+		};
+		Table.addColumn("STT");
+		Table.addColumn("Tên sản phẩm");
+		Table.addColumn("Tên nhà sản xuất");
+		Table.addColumn("Tên phân loại");
+		Table.addColumn("Số lượng");
+		Table.addColumn("Giá bán");
+		Table.addColumn("Hình ảnh");
+		int i=0;
+		for(ViewSanPham sp : SanPhamMua)
+		{
+			++i;
+			DecimalFormat formatter = new DecimalFormat("0");
+			ViewSanPham s = spm.GetViewSanPhamByIdSanPham(sp.getMaSanPham());
+			Table.addRow(new Object[]
+					{
+							i,
+							s.getTenSanPham(),
+							s.getTenNhaSanXuat(),
+							s.getTenPhanLoai(),
+							sp.getSoLuong(),
+							formatter.format(s.getGiaBan()),
+							s.getHinhAnh()
+					});
+		}
+		table.setModel(Table);
+		table.getTableHeader().setReorderingAllowed(false);
+		table.setRowHeight(50);
+		table.getTableHeader().setReorderingAllowed(false);
+		table.getColumnModel().getColumn(6).setCellRenderer(new ImageRender());
+		
+	}
+	private class ImageRender extends DefaultTableCellRenderer{
+
+		@Override
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+				int row, int column) {
+			byte[]bytes = (byte[])value;
+			ImageIcon imageIcon = new ImageIcon(bytes);
+			setIcon(imageIcon);
+			return this;
+		}
+		
 	}
 	public void ShowWinDow()
 	{

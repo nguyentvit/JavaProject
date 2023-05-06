@@ -52,12 +52,12 @@ public class PhanLoai extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-save-20.png"));
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-save-20.png"));
 		btnNewButton.setBounds(141, 143, 53, 29);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-close-20.png"));
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-close-20.png"));
 		btnNewButton_1.setBounds(216, 143, 53, 29);
 		contentPane.add(btnNewButton_1);
 		
@@ -76,7 +76,7 @@ public class PhanLoai extends JFrame {
 			}
 			
 		});
-		btnTrV.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
+		btnTrV.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-back-20.png"));
 		btnTrV.setBounds(389, 10, 37, 29);
 		contentPane.add(btnTrV);
 	}

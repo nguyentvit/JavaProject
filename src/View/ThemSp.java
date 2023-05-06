@@ -104,7 +104,7 @@ public class ThemSp extends JFrame{
 		
 		 btnXacNhan = new JButton("");
 		 btnXacNhan.setBackground(new Color(0, 128, 192));
-		 btnXacNhan.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-checkmark-25.png"));
+		 btnXacNhan.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-checkmark-25.png"));
 		 btnXacNhan.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
 		 		try {
@@ -120,7 +120,7 @@ public class ThemSp extends JFrame{
 		
 		JButton btnHuy = new JButton("");
 		btnHuy.setBackground(new Color(225, 38, 71));
-		btnHuy.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-close-20.png"));
+		btnHuy.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-close-20.png"));
 		btnHuy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -142,7 +142,7 @@ public class ThemSp extends JFrame{
 		
 		btnAnh = new JButton("");
 		btnAnh.setBackground(new Color(0, 183, 183));
-		btnAnh.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-add-image-20.png"));
+		btnAnh.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-add-image-20.png"));
 		btnAnh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
