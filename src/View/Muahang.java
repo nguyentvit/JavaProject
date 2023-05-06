@@ -36,13 +36,13 @@ import View.ThemSp;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
-public class MuaHang extends JFrame {
+public class Muahang extends JFrame {
 	private JTable table, table1;
 	private JPanel contentPane;
 	private DefaultTableModel Table, Table1;
 	private JButton btnThem,btnTrV,btnNewButton_2,btnXoa;
 
-	public MuaHang()  throws SQLException, IOException{
+	public Muahang()  throws SQLException, IOException{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 711, 420);
 		contentPane = new JPanel();

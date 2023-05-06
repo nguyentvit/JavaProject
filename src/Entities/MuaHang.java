@@ -1,11 +1,10 @@
 package Entities;
 
-import java.sql.Date;
 
 public class MuaHang {
 	public String MaMuaHang;
 	public String MaNguoi;
-	public Date ThoiGianMuaHang;
+	public String ThoiGianMuaHang;
 	public String DiaChiNhanHang;
 	public double TongCong;
 	public String getMaMuaHang() {
@@ -20,10 +19,10 @@ public class MuaHang {
 	public void setMaNguoi(String maNguoi) {
 		MaNguoi = maNguoi;
 	}
-	public Date getThoiGianMuaHang() {
+	public String getThoiGianMuaHang() {
 		return ThoiGianMuaHang;
 	}
-	public void setThoiGianMuaHang(Date thoiGianMuaHang) {
+	public void setThoiGianMuaHang(String thoiGianMuaHang) {
 		ThoiGianMuaHang = thoiGianMuaHang;
 	}
 	public String getDiaChiNhanHang() {
@@ -38,7 +37,7 @@ public class MuaHang {
 	public void setTongCong(double tongCong) {
 		TongCong = tongCong;
 	}
-	public MuaHang(String maMuaHang, String maNguoi, Date thoiGianMuaHang, String diaChiNhanHang, double tongCong) {
+	public MuaHang(String maMuaHang, String maNguoi, String thoiGianMuaHang, String diaChiNhanHang, double tongCong) {
 		super();
 		MaMuaHang = maMuaHang;
 		MaNguoi = maNguoi;

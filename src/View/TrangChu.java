@@ -90,9 +90,9 @@ public class TrangChu extends JFrame {
 		btnTrangCh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				MuaHang mh;
+				Muahang mh;
 				try {
-					mh = new MuaHang();
+					mh = new Muahang();
 					mh.ShowWinDow();
 				} catch (Exception ex) {
 					// TODO Auto-generated catch block
