@@ -40,10 +40,10 @@ public class PhanLoaiModel {
 	public void AddPhanLoai(PhanLoai pl) throws SQLException
 	{
 		PreparedStatement prepare = DocCsdl.getConnect().prepareStatement(
-		"insert into PhanLoai values (?, ?  )"	
+		"insert into PhanLoai values (?, ?)"	
 		);
 		prepare.setString(1, pl.getMaPhanLoai());
-		prepare.setString(1, pl.getTenPhanLoai());
+		prepare.setString(2, pl.getTenPhanLoai());
 		prepare.executeUpdate();
 		
 	}

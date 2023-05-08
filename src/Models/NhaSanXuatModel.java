@@ -43,10 +43,10 @@ public class NhaSanXuatModel {
 	public void AddNhaSX(NhaSanXuat sx) throws SQLException
 	{
 		PreparedStatement prepare = DocCsdl.getConnect().prepareStatement(
-		"insert into NhaSanXuat values (?, ?  )"	
+		"insert into NhaSanXuat values (?, ?)"	
 		);
 		prepare.setString(1, sx.getMaNhaSanXuat());
-		prepare.setString(1, sx.getTenNhaSanXuat());
+		prepare.setString(2, sx.getTenNhaSanXuat());
 		prepare.executeUpdate();
 		
 	}

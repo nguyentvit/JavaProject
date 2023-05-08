@@ -49,7 +49,7 @@ public class NhapKho extends JFrame {
 //						"Nhà Sản Xuất", "Phân loại SP"
 //				});
 //	
-		JComboBox cbbChon = new JComboBox();
+		cbbChon = new JComboBox();
 		cbbChon.setModel(new DefaultComboBoxModel(new String[] {"Nhà Sản Xuất", "Phân Loại SP"}));
 		cbbChon.setBounds(136, 47, 136, 21);
 		contentPane.add(cbbChon);
@@ -143,8 +143,7 @@ public class NhapKho extends JFrame {
 		{
 			//JOptionPane.showMessageDialog(null,"Thêm sản phẩm thành công","Thông báo",JOptionPane.INFORMATION_MESSAGE);
 			String selectedOption = cbbChon.getSelectedItem().toString();
-			//int selectedOption = cbbChon.getSelectedIndex();
-			
+						
 			if (selectedOption== "Nhà Sản Xuất")
 			{
 				 System.out.println("Thực hiện hàm thêm nhà sản xuất.");
