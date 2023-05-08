@@ -21,11 +21,23 @@ public class NguoiModel {
 		Statement stt = con.createStatement();
 		String query = "select * from Nguoi" ;
 		ResultSet result = stt.executeQuery(query);
+		int i = 1;
 		while(result.next())
 		{						
 			Nguois.add(new Nguoi(result.getString("MaNguoi"),result.getString("TenNguoi"),result.getString("Sdt")));
 		}
 		return Nguois;
+	}
+	public Nguoi getNguoiByIdNguoi(String Id) throws SQLException
+	{
+		for (Nguoi ng : GetAllNguoi())
+		{
+			if (ng.getMaNguoi().equals(Id))
+			{
+				return ng;
+			}
+		}
+		return null;
 	}
 	public String TaoIdNguoi() throws SQLException
 	{
@@ -62,6 +74,17 @@ public class NguoiModel {
 		prepare.setString(1, ng.getMaNguoi());
 		prepare.setString(2, ng.getTenNguoi());
 		prepare.setString(3, ng.getSdt());
+		prepare.executeUpdate();
+		
+	}
+	public void SuaNguoi(Nguoi ng) throws SQLException
+	{
+		PreparedStatement prepare = DocCsdl.getConnect().prepareStatement(
+				"update Nguoi set TenNguoi = ? , Sdt = ? where MaNguoi = ?"
+				);
+		prepare.setString(1, ng.getTenNguoi());
+		prepare.setString(2, ng.getSdt());
+		prepare.setString(3, ng.getMaNguoi());
 		prepare.executeUpdate();
 		
 	}

@@ -45,6 +45,7 @@ public class ThemSp extends JFrame{
 	private JButton btnAnh,btnXacNhan;
 	private File file;
 	private JLabel picture;
+	private JButton btnNewButton;
 	public ThemSp() throws SQLException, IOException {
 		getContentPane().setBackground(new Color(217, 255, 255));
 		getContentPane().setLayout(null);
@@ -104,7 +105,7 @@ public class ThemSp extends JFrame{
 		
 		 btnXacNhan = new JButton("");
 		 btnXacNhan.setBackground(new Color(0, 128, 192));
-		 btnXacNhan.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-checkmark-25.png"));
+		 btnXacNhan.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-checkmark-25.png"));
 		 btnXacNhan.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
 		 		try {
@@ -120,7 +121,7 @@ public class ThemSp extends JFrame{
 		
 		JButton btnHuy = new JButton("");
 		btnHuy.setBackground(new Color(225, 38, 71));
-		btnHuy.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-close-20.png"));
+		btnHuy.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-close-20.png"));
 		btnHuy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -142,7 +143,7 @@ public class ThemSp extends JFrame{
 		
 		btnAnh = new JButton("");
 		btnAnh.setBackground(new Color(0, 183, 183));
-		btnAnh.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-add-image-20.png"));
+		btnAnh.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-add-image-20.png"));
 		btnAnh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -155,6 +156,25 @@ public class ThemSp extends JFrame{
 		});
 		btnAnh.setBounds(416, 217, 79, 33);
 		getContentPane().add(btnAnh);
+		
+		btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Sanpham sp;
+				try {
+					sp = new Sanpham();
+					sp.ShowWinDow();
+				} catch (SQLException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
+		btnNewButton.setBounds(503, 10, 45, 26);
+		getContentPane().add(btnNewButton);
 		
 		
 		
@@ -171,8 +191,6 @@ public class ThemSp extends JFrame{
 		{
 			cbbNhaSx.addItem(new ComboItem(sx.getMaNhaSanXuat(),sx.getTenNhaSanXuat()));
 		}
-		
-		
 	}
 	public void loadInfor(String id)
 	{

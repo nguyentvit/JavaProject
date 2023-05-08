@@ -54,7 +54,7 @@ public class TrangChu extends JFrame {
 		panelLogo.setLayout(null);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-online-store-100.png"));
+		lblNewLabel_2.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-online-store-100.png"));
 		lblNewLabel_2.setBounds(31, 10, 97, 95);
 		panelLogo.add(lblNewLabel_2);
 		
@@ -75,7 +75,7 @@ public class TrangChu extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-paid-bill-20.png"));
+		btnNewButton.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-paid-bill-20.png"));
 		btnNewButton.setBounds(10, 231, 159, 39);
 		panelMenu.add(btnNewButton);
 		
@@ -102,7 +102,7 @@ public class TrangChu extends JFrame {
 			}
 		});
 		btnTrangCh.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnTrangCh.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-buy-25.png"));
+		btnTrangCh.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-buy-25.png"));
 		btnTrangCh.setBounds(10, 133, 159, 39);
 		panelMenu.add(btnTrangCh);
 		
@@ -123,7 +123,7 @@ public class TrangChu extends JFrame {
 		});
 		btnSnPhm.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnSnPhm.setHorizontalAlignment(SwingConstants.LEFT);
-		btnSnPhm.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-iphone-se-50.png"));
+		btnSnPhm.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-iphone-se-50.png"));
 		btnSnPhm.setBounds(10, 182, 159, 39);
 		panelMenu.add(btnSnPhm);
 		
@@ -144,7 +144,7 @@ public class TrangChu extends JFrame {
 			}
 		});
 		btnNewButton_5.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton_5.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-customer-20.png"));
+		btnNewButton_5.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-customer-20.png"));
 		btnNewButton_5.setBounds(10, 280, 159, 39);
 		panelMenu.add(btnNewButton_5);
 		
@@ -152,9 +152,9 @@ public class TrangChu extends JFrame {
 		btnTrangCh_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				PhanLoai pl;
+				NhapKho pl;
 				try {
-					pl = new PhanLoai();
+					pl = new NhapKho();
 					pl.ShowWinDow();
 				} catch (SQLException | IOException e1) {
 					// TODO Auto-generated catch block
@@ -162,7 +162,7 @@ public class TrangChu extends JFrame {
 				}
 			}
 		});
-		btnTrangCh_1.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-categorize-20.png"));
+		btnTrangCh_1.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-categorize-20.png"));
 		btnTrangCh_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnTrangCh_1.setBounds(10, 329, 159, 39);
 		panelMenu.add(btnTrangCh_1);
@@ -192,7 +192,7 @@ public class TrangChu extends JFrame {
 		panelTrangChu.add(textField);
 		
 		JButton btnTim = new JButton("");
-		btnTim.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-find-20.png"));
+		btnTim.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-find-20.png"));
 		btnTim.setBounds(413, 96, 37, 21);
 		panelTrangChu.add(btnTim);
 		

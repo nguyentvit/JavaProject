@@ -12,8 +12,9 @@ import View.TrangChu;
 public class Main {
 
 	public static void main(String[] args) throws SQLException, IOException  {
+		TrangChu ch = new TrangChu();
 	   Muahang tc = new Muahang();
-		tc.ShowWinDow();
+		ch.ShowWinDow();
 		//sp.ShowWinDow();
 	}
 

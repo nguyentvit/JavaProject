@@ -91,7 +91,7 @@ public class ChiTietHoaDon extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("CHI TIẾT HÓA ĐƠN");
 		lblNewLabel.setBackground(new Color(205, 250, 252));
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-paid-bill-20.png"));
+		lblNewLabel.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-paid-bill-20.png"));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel.setBounds(281, 10, 153, 38);
 		contentPane.add(lblNewLabel);
@@ -134,12 +134,12 @@ public class ChiTietHoaDon extends JFrame {
 		
 		 btnNewButton = new JButton("");
 		
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-checkmark-25.png"));
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-checkmark-25.png"));
 		btnNewButton.setBounds(280, 322, 45, 38);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-close-20.png"));
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-close-20.png"));
 		btnNewButton_1.setBounds(335, 322, 45, 38);
 		contentPane.add(btnNewButton_1);
 		
@@ -157,7 +157,7 @@ public class ChiTietHoaDon extends JFrame {
 				}
 			}
 		});
-		btnTrV.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-back-20.png"));
+		btnTrV.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
 		btnTrV.setBounds(657, 20, 37, 29);
 		contentPane.add(btnTrV);
 		

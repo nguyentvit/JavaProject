@@ -71,13 +71,13 @@ public class Muahang extends JFrame {
 		
 		 btnThem = new JButton("");
 		
-		btnThem.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-buy-25.png"));
+		btnThem.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-buy-25.png"));
 		btnThem.setBounds(16, 75, 57, 33);
 		contentPane.add(btnThem);
 		
 		 btnXoa = new JButton("");
 		
-		btnXoa.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-delete-25.png"));
+		btnXoa.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-delete-25.png"));
 		btnXoa.setBounds(23, 242, 48, 30);
 		contentPane.add(btnXoa);
 		btnNewButton_2 = new JButton("Xác nhận\r\n");
@@ -86,7 +86,7 @@ public class Muahang extends JFrame {
 		contentPane.add(btnNewButton_2);
 		
 		btnTrV = new JButton("");
-		btnTrV.setIcon(new ImageIcon("C:\\Users\\Admin\\eclipse-workspace\\QuanLyDienThoai\\JavaProject\\icons\\icons8-back-20.png"));
+		btnTrV.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
 		btnTrV.setBounds(609, 16, 37, 29);
 		contentPane.add(btnTrV);
 		loadData();

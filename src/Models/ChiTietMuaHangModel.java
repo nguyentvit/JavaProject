@@ -12,6 +12,8 @@ import java.util.concurrent.ThreadLocalRandom;
 import DocCsdl.DocCsdl;
 import Entities.ChiTietMuaHang;
 import Entities.SanPham;
+import DTO.ViewHoaDon;
+import Entities.MuaHang;
 
 
 public class ChiTietMuaHangModel {
