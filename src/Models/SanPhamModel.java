@@ -81,5 +81,19 @@ public class SanPhamModel {
 		}
 		return id;
 	}
-	
-}
+
+	//public void SuaSanPham(SanPham sp) {
+		// TODO Auto-generated method stub
+	public void SuaSanPham(SanPham sp) throws SQLException {
+		PreparedStatement prepare = DocCsdl.getConnect().prepareStatement(
+				"update SanPham set Gia = ? , GiaBan = ? where MaSanPham = ?"
+				);
+		prepare.setDouble(1, sp.getGiaBan());
+		prepare.setDouble(2, sp.getGiaNhap());
+		prepare.setString(3, sp.getMaSanPham());
+		prepare.executeUpdate();
+		// TODO Auto-generated method stub
+		
+	}
+		
+	}

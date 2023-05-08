@@ -9,11 +9,13 @@ import javax.swing.border.EmptyBorder;
 
 import DTO.ComboItem;
 import DTO.ViewSanPham;
+import Entities.Nguoi;
 import Entities.SanPham;
 import Models.SanPhamModel;
 import Models.ViewSanPhamModel;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JTextField;
@@ -26,6 +28,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.awt.event.ActionEvent;
 
 public class SuaSP extends JFrame {
@@ -53,6 +56,7 @@ public class SuaSP extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JComboBox cbbPhanLoai = new JComboBox();
+		cbbPhanLoai.setEnabled(false);
 		cbbPhanLoai.setBounds(165, 31, 125, 22);
 		contentPane.add(cbbPhanLoai);
 		
@@ -61,6 +65,7 @@ public class SuaSP extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JComboBox cbbNhaSx = new JComboBox();
+		cbbNhaSx.setEnabled(false);
 		cbbNhaSx.setBounds(165, 63, 125, 22);
 		contentPane.add(cbbNhaSx);
 		
@@ -69,6 +74,7 @@ public class SuaSP extends JFrame {
 		contentPane.add(lblNewLabel_1_1);
 		
 		txtTen = new JTextField();
+		txtTen.setEnabled(false);
 		txtTen.setColumns(10);
 		txtTen.setBounds(165, 102, 125, 20);
 		contentPane.add(txtTen);
@@ -96,11 +102,42 @@ public class SuaSP extends JFrame {
 		contentPane.add(lblNewLabel_1_4);
 		
 		txtSoLuong = new JTextField();
+		txtSoLuong.setEnabled(false);
 		txtSoLuong.setColumns(10);
 		txtSoLuong.setBounds(165, 223, 125, 20);
 		contentPane.add(txtSoLuong);
 		
 		JButton btnXacNhan = new JButton("");
+		btnXacNhan.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//DecimalFormat formatter = new DecimalFormat("0");
+				SanPham sp = new SanPham();
+			    SanPhamModel spm = new SanPhamModel();
+			  
+			    try {
+			    	sp = spm.GetSanPhamByIdSanPham(id);
+			    	 sp.setGiaNhap(Double.parseDouble(txtGianhap.getText())); // sửa giá nhập
+					    sp.setGiaBan(Double.parseDouble(txtGiaBan.getText())); // sửa giá bán
+			    	spm.SuaSanPham(sp);
+			    	JOptionPane .showMessageDialog(null, "Thay đổi thông tin thành công", "Thông báo", JOptionPane.OK_OPTION);
+			    	
+						try {
+							dispose();
+					    	Sanpham ph;
+							ph = new Sanpham();
+							ph.ShowWinDow();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+			    }
+			    catch (SQLException e1)
+			    {
+			    	e1.printStackTrace();
+			    }
+				
+			}
+		});
 		btnXacNhan.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-checkmark-25.png"));
 		btnXacNhan.setBackground(new Color(0, 128, 192));
 		btnXacNhan.setBounds(182, 271, 42, 33);
@@ -157,7 +194,7 @@ public class SuaSP extends JFrame {
 		    Image scaledImage = image.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
 		    ImageIcon scaledIcon = new ImageIcon(scaledImage);
 		    picture = new JLabel(scaledIcon);
-		    picture.setBounds(420, 60, 150, 150);
+		    picture.setBounds(399, 63, 150, 150);
 		    picture.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // Thêm đường viền cho JLabel
 		    picture.setHorizontalAlignment(JLabel.CENTER); // Căn giữa JLabel theo chiều ngang
 		    picture.setVerticalAlignment(JLabel.CENTER); // Căn giữa JLabel theo chiều dọc
@@ -165,27 +202,7 @@ public class SuaSP extends JFrame {
 		    getContentPane().revalidate();
 		    getContentPane().repaint();
 	}
-	public void btnAnh_actionPerformed(ActionEvent e) throws SQLException, IOException {
-		JFileChooser jFileChooser = new JFileChooser();
-		jFileChooser.setMultiSelectionEnabled(false);
-		if (jFileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-		    this.file = jFileChooser.getSelectedFile();
-		    String sname = file.getAbsolutePath();
-		    ImageIcon icon = new ImageIcon(sname);
-		    Image image = icon.getImage();
-		    Image scaledImage = image.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
-		    ImageIcon scaledIcon = new ImageIcon(scaledImage);
-		    picture = new JLabel(scaledIcon);
-		    picture.setBounds(420, 60, 150, 150);
-		    picture.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // Thêm đường viền cho JLabel
-		    picture.setHorizontalAlignment(JLabel.CENTER); // Căn giữa JLabel theo chiều ngang
-		    picture.setVerticalAlignment(JLabel.CENTER); // Căn giữa JLabel theo chiều dọc
-		    getContentPane().add(picture);
-		    getContentPane().revalidate();
-		    getContentPane().repaint();
-		};
-			
-	}
+	
 	public void ShowWinDow() {
 		// TODO Auto-generated method stub
 		this.setVisible(true);
