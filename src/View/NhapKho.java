@@ -153,7 +153,7 @@ public class NhapKho extends JFrame {
 				sx.setTenNhaSanXuat(txtTen.getText());
 				sxm.AddNhaSX(sx);
 			}
-			else if (selectedOption.equals("Phân loại SP"))
+			else if (selectedOption.equals("Phân Loại SP"))
 			{
 				System.out.println("Thực hiện hàm thêm phân loại sản phẩm.");
 				PhanLoaiModel plm = new PhanLoaiModel();

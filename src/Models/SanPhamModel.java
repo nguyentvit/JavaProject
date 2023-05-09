@@ -95,5 +95,15 @@ public class SanPhamModel {
 		// TODO Auto-generated method stub
 		
 	}
+	public void ThemSL(SanPham sp) throws SQLException
+	{
+		PreparedStatement prepare = DocCsdl.getConnect().prepareStatement(
+				"update SanPham set SoLuong = ? + SoLuong where MaSanPham = ?"
+				);
+		prepare.setInt(1, sp.getSoLuong());
+		prepare.setString(2, sp.getMaSanPham());
+		
+		prepare.executeUpdate();
+	}
 		
 	}

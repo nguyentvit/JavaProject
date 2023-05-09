@@ -139,8 +139,8 @@ public class Sanpham extends JFrame {
 		panel.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnThem_1 = new JButton("");
-		btnThem_1.addActionListener(new ActionListener() {
+		JButton btnThemSP = new JButton("");
+		btnThemSP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				ThemSp t;
@@ -154,14 +154,32 @@ public class Sanpham extends JFrame {
 				
 			}
 		});
-		btnThem_1.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-add-properties-20.png"));
-		btnThem_1.setBounds(473, 32, 37, 29);
-		panel.add(btnThem_1);
+		btnThemSP.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-add-properties-20.png"));
+		btnThemSP.setBounds(473, 32, 37, 29);
+		panel.add(btnThemSP);
 		
-		JButton btnThem_1_1 = new JButton("");
-		btnThem_1_1.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-add-20.png"));
-		btnThem_1_1.setBounds(426, 32, 37, 29);
-		panel.add(btnThem_1_1);
+		JButton btnThemSL = new JButton("");
+		btnThemSL.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int selectedRow = table.getSelectedRow();
+				if (selectedRow != -1) { // kiểm tra xem đã chọn hàng nào chưa
+				    String id = table.getValueAt(selectedRow, 1).toString(); // lấy giá trị mã khách hàng từ cột 1 (cột thứ 2)
+				    ThemSL them;
+				try {
+					them = new ThemSL(id);
+					them.ShowWinDow();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+}
+				
+			}
+		});
+		btnThemSL.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-add-20.png"));
+		btnThemSL.setBounds(426, 32, 37, 29);
+		panel.add(btnThemSL);
 		loadData(null);
 		SetCbb();
 	}
