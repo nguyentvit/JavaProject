@@ -10,7 +10,11 @@ public class DocCsdl {
 		Connection conn = null;
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databasename=QuanLyDienThoai;user=sa;password=Dilysnguyen23;encrypt=false");
+			conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databasename=QuanLyDienThoai;user=Daisy;password=10042003;encrypt=false");
+//Class.forName("com.mysql.jdbc.Driver");
+//			
+//			String url = "jdbc:mysql://127.0.0.1:3306/quanlydienthoai";
+//			Connection con = DriverManager.getConnection(url,"root","");
 		}
 		catch(SQLException e)
 		{

@@ -32,13 +32,17 @@ import javax.swing.SwingConstants;
 import View.ThemSp;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import java.awt.Panel;
+import java.awt.Button;
+import javax.swing.Icon;
+import javax.swing.BorderFactory;
 
 public class TrangChu extends JFrame {
 	private JTable table;
 	private DefaultTableModel Table;
 	private JPanel panelTrangChu;
     private JButton btnTrangCh;
-    private JTextField textField;
+    private JTextField txtTim;
 	public TrangChu() throws SQLException, IOException {
 		getContentPane().setLayout(null);
 		
@@ -54,7 +58,7 @@ public class TrangChu extends JFrame {
 		panelLogo.setLayout(null);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-online-store-100.png"));
+		lblNewLabel_2.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-online-store-100.png"));
 		lblNewLabel_2.setBounds(31, 10, 97, 95);
 		panelLogo.add(lblNewLabel_2);
 		
@@ -75,7 +79,7 @@ public class TrangChu extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-paid-bill-20.png"));
+		btnNewButton.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-paid-bill-20.png"));
 		btnNewButton.setBounds(10, 231, 159, 39);
 		panelMenu.add(btnNewButton);
 		
@@ -102,7 +106,7 @@ public class TrangChu extends JFrame {
 			}
 		});
 		btnTrangCh.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnTrangCh.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-buy-25.png"));
+		btnTrangCh.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-buy-25.png"));
 		btnTrangCh.setBounds(10, 133, 159, 39);
 		panelMenu.add(btnTrangCh);
 		
@@ -122,8 +126,7 @@ public class TrangChu extends JFrame {
 			}
 		});
 		btnSnPhm.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnSnPhm.setHorizontalAlignment(SwingConstants.LEFT);
-		btnSnPhm.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-iphone-se-50.png"));
+		btnSnPhm.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-buy-25.png"));
 		btnSnPhm.setBounds(10, 182, 159, 39);
 		panelMenu.add(btnSnPhm);
 		
@@ -144,7 +147,7 @@ public class TrangChu extends JFrame {
 			}
 		});
 		btnNewButton_5.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnNewButton_5.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-customer-20.png"));
+		btnNewButton_5.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-customer-20.png"));
 		btnNewButton_5.setBounds(10, 280, 159, 39);
 		panelMenu.add(btnNewButton_5);
 		
@@ -162,14 +165,14 @@ public class TrangChu extends JFrame {
 				}
 			}
 		});
-		btnTrangCh_1.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-categorize-20.png"));
+		btnTrangCh_1.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-categorize-20.png"));
 		btnTrangCh_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnTrangCh_1.setBounds(10, 329, 159, 39);
 		panelMenu.add(btnTrangCh_1);
 		
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 148, 629, 192);
+		scrollPane.setBounds(20, 135, 365, 295);
 		//getContentPane().add(scrollPane);
 		
 		
@@ -177,25 +180,47 @@ public class TrangChu extends JFrame {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
-		JComboBox cbbNhaSx = new JComboBox();
-		cbbNhaSx.setBounds(10, 96, 119, 21);
-		panelTrangChu.add(cbbNhaSx);
-		
-		JComboBox cbbPhanLoai = new JComboBox();
-		cbbPhanLoai.setBounds(139, 96, 119, 21);
-		panelTrangChu.add(cbbPhanLoai);
-		
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		textField.setColumns(10);
-		textField.setBounds(268, 97, 119, 19);
-		panelTrangChu.add(textField);
+		txtTim = new JTextField();
+		txtTim.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		txtTim.setColumns(10);
+		txtTim.setBounds(426, 98, 119, 19);
+		panelTrangChu.add(txtTim);
 		
 		JButton btnTim = new JButton("");
-		btnTim.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-find-20.png"));
-		btnTim.setBounds(413, 96, 37, 21);
+		btnTim.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					loadData();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnTim.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-find-20.png"));
+		btnTim.setBounds(567, 96, 37, 21);
 		panelTrangChu.add(btnTim);
 		
+		JLabel lblQuanrLysCuawr = new JLabel(" CỬA HÀNG ĐIỆN THOẠI 2GB");
+		lblQuanrLysCuawr.setFont(new Font("Tahoma", Font.BOLD, 21));
+		lblQuanrLysCuawr.setBounds(162, 31, 306, 45);
+		panelTrangChu.add(lblQuanrLysCuawr);
+		
+		JLabel picture = new JLabel(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\thiet-ke-cua-hang-dien-thoai-nho-15.jpg"));
+		picture.setVerticalAlignment(SwingConstants.CENTER);
+		picture.setHorizontalAlignment(SwingConstants.CENTER);
+		picture.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		picture.setBounds(391, 131, 232, 299);
+		panelTrangChu.add(picture);
+		
+		JLabel lblQuanrLysCuawr_1 = new JLabel("DANH SÁCH MẶT HÀNG BÀY BÁN:");
+		lblQuanrLysCuawr_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblQuanrLysCuawr_1.setBounds(20, 98, 248, 45);
+		panelTrangChu.add(lblQuanrLysCuawr_1);
+	
 		loadData();
 	}
 	private void loadData() throws SQLException, IOException
@@ -236,34 +261,37 @@ public class TrangChu extends JFrame {
 				lbl1 = lbl;
 				image1 = scaledIcon;
 			}
-			Table.addRow(new Object[]
-					{
-							sp.getStt(),
-							sp.getMaSanPham(),
-							sp.getTenSanPham(),
-							sp.getTenNhaSanXuat(),
-							sp.getTenPhanLoai(),
-							sp.getSoLuong(),
-							formatter.format(sp.getGiaNhap()),
-							formatter.format(sp.getGiaBan()),
-							sp.getHinhAnh()
-					});
-		}
-		table.setModel(Table);
-		table.getColumnModel().getColumn(1).setMinWidth(0);
-		table.getColumnModel().getColumn(1).setMaxWidth(0);
-		
-		table.getColumnModel().getColumn(5).setMinWidth(0);
-		table.getColumnModel().getColumn(5).setMaxWidth(0);
-		
-		table.getColumnModel().getColumn(6).setMinWidth(0);
-		table.getColumnModel().getColumn(6).setMaxWidth(0);
-		
+			if(sp.getTenSanPham().contains(txtTim.getText()) && sp.getTrangThai() == true) {
+				Table.addRow(new Object[]
+						{
+								sp.getStt(),
+								sp.getMaSanPham(),
+								sp.getTenSanPham(),
+								sp.getTenNhaSanXuat(),
+								sp.getTenPhanLoai(),
+								sp.getSoLuong(),
+								formatter.format(sp.getGiaNhap()),
+								formatter.format(sp.getGiaBan()),
+								sp.getHinhAnh(),
+								sp.getTrangThai()
+						});
+			}
+			table.setModel(Table);
+			table.getColumnModel().getColumn(1).setMinWidth(0);
+			table.getColumnModel().getColumn(1).setMaxWidth(0);
+			
+			table.getColumnModel().getColumn(5).setMinWidth(0);
+			table.getColumnModel().getColumn(5).setMaxWidth(0);
+			
+			table.getColumnModel().getColumn(6).setMinWidth(0);
+			table.getColumnModel().getColumn(6).setMaxWidth(0);
+			
 
-		table.getTableHeader().setReorderingAllowed(false);
-		table.setRowHeight(50);
-		table.getTableHeader().setReorderingAllowed(false);
-		table.getColumnModel().getColumn(8).setCellRenderer(new ImageRender());
+			table.getTableHeader().setReorderingAllowed(false);
+			table.setRowHeight(35);
+			table.getTableHeader().setReorderingAllowed(false);
+			table.getColumnModel().getColumn(8).setCellRenderer(new ImageRender());
+		}
 	}
 	
 	private class ImageRender extends DefaultTableCellRenderer{

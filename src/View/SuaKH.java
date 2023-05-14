@@ -31,7 +31,7 @@ public class SuaKH extends JFrame {
 
 	public SuaKH(String id) throws SQLException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 446, 235);
+		setBounds(100, 100, 630, 395);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(170, 236, 253));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -40,22 +40,25 @@ public class SuaKH extends JFrame {
 		contentPane.setLayout(null);
 		
 		txtTen = new JTextField();
-		txtTen.setBounds(153, 51, 117, 19);
+		txtTen.setFont(new Font("Tahoma", Font.BOLD, 15));
+		txtTen.setBounds(352, 146, 134, 27);
 		contentPane.add(txtTen);
 		txtTen.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("THAY ĐỔI THÔNG TIN KHÁCH HÀNG");
-		lblNewLabel.setBounds(121, 10, 217, 15);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel.setBounds(176, 62, 403, 33);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setForeground(new Color(0, 0, 0));
 		contentPane.add(lblNewLabel);
 		
 		txtSdt = new JTextField();
+		txtSdt.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtSdt.setColumns(10);
-		txtSdt.setBounds(153, 94, 117, 19);
+		txtSdt.setBounds(352, 218, 134, 26);
 		contentPane.add(txtSdt);
 		
 		JButton btnXacNhan = new JButton("");
+		btnXacNhan.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnXacNhan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -81,21 +84,29 @@ public class SuaKH extends JFrame {
 				
 			}
 		});
-		btnXacNhan.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-checkmark-25.png"));
-		btnXacNhan.setBounds(177, 138, 33, 33);
+		btnXacNhan.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-checkmark-25.png"));
+		btnXacNhan.setBounds(263, 295, 46, 40);
 		contentPane.add(btnXacNhan);
 		
 		JButton btnHuy = new JButton("");
-		btnHuy.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-close-20.png"));
-		btnHuy.setBounds(220, 138, 33, 33);
+		btnHuy.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnHuy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtSdt.setText("");
+			}
+		});
+		btnHuy.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-close-20.png"));
+		btnHuy.setBounds(407, 295, 40, 40);
 		contentPane.add(btnHuy);
 		
 		JLabel lblNewLabel_1 = new JLabel("Tên ");
-		lblNewLabel_1.setBounds(58, 54, 60, 13);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1.setBounds(207, 146, 60, 26);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Số điện thoại ");
-		lblNewLabel_2.setBounds(58, 97, 78, 13);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_2.setBounds(207, 217, 129, 27);
 		contentPane.add(lblNewLabel_2);
 		
 		NguoiModel ngm = new NguoiModel();
@@ -103,10 +114,24 @@ public class SuaKH extends JFrame {
 		txtTen.setText(ng.getTenNguoi());
 		txtSdt.setText(ng.getSdt());
 		
-		JButton btnNewButton_2 = new JButton("");
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
-		btnNewButton_2.setBounds(389, 10, 33, 26);
-		contentPane.add(btnNewButton_2);
+		JButton btnBack = new JButton("");
+		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				KhachHang kh;
+				try {
+					kh = new KhachHang();
+					kh.ShowWinDow();
+				} catch (SQLException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnBack.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-back-20.png"));
+		btnBack.setBounds(24, 26, 33, 35);
+		contentPane.add(btnBack);
 	}
 	public void ShowWinDow() {
 		// TODO Auto-generated method stub

@@ -30,6 +30,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class SuaSP extends JFrame {
 
@@ -43,7 +44,7 @@ public class SuaSP extends JFrame {
 
 	public SuaSP(String id) throws SQLException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 585, 380);
+		setBounds(100, 100, 768, 473);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(184, 245, 252));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -52,62 +53,75 @@ public class SuaSP extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Loại sản phẩm");
-		lblNewLabel.setBounds(69, 31, 79, 22);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel.setBounds(143, 88, 126, 22);
 		contentPane.add(lblNewLabel);
 		
 		JComboBox cbbPhanLoai = new JComboBox();
+		cbbPhanLoai.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		cbbPhanLoai.setEnabled(false);
-		cbbPhanLoai.setBounds(165, 31, 125, 22);
+		cbbPhanLoai.setBounds(279, 88, 147, 22);
 		contentPane.add(cbbPhanLoai);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nhà sản xuất");
-		lblNewLabel_1.setBounds(69, 63, 79, 22);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1.setBounds(143, 120, 126, 22);
 		contentPane.add(lblNewLabel_1);
 		
 		JComboBox cbbNhaSx = new JComboBox();
+		cbbNhaSx.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		cbbNhaSx.setEnabled(false);
-		cbbNhaSx.setBounds(165, 63, 125, 22);
+		cbbNhaSx.setBounds(279, 120, 147, 22);
 		contentPane.add(cbbNhaSx);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Tên sản phẩm");
-		lblNewLabel_1_1.setBounds(69, 95, 79, 22);
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_1.setBounds(143, 152, 126, 22);
 		contentPane.add(lblNewLabel_1_1);
 		
 		txtTen = new JTextField();
+		txtTen.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		txtTen.setEnabled(false);
 		txtTen.setColumns(10);
-		txtTen.setBounds(165, 102, 125, 20);
+		txtTen.setBounds(279, 159, 147, 20);
 		contentPane.add(txtTen);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Giá nhập");
-		lblNewLabel_1_2.setBounds(69, 139, 79, 22);
+		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_2.setBounds(143, 196, 126, 22);
 		contentPane.add(lblNewLabel_1_2);
 		
 		txtGianhap = new JTextField();
+		txtGianhap.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		txtGianhap.setColumns(10);
-		txtGianhap.setBounds(165, 141, 125, 20);
+		txtGianhap.setBounds(279, 198, 147, 20);
 		contentPane.add(txtGianhap);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("Giá bán");
-		lblNewLabel_1_3.setBounds(69, 179, 79, 22);
+		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_3.setBounds(143, 236, 126, 22);
 		contentPane.add(lblNewLabel_1_3);
 		
 		txtGiaBan = new JTextField();
+		txtGiaBan.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		txtGiaBan.setColumns(10);
-		txtGiaBan.setBounds(165, 181, 125, 20);
+		txtGiaBan.setBounds(279, 238, 147, 20);
 		contentPane.add(txtGiaBan);
 		
 		JLabel lblNewLabel_1_4 = new JLabel("Số lượng");
-		lblNewLabel_1_4.setBounds(69, 221, 79, 22);
+		lblNewLabel_1_4.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_4.setBounds(143, 278, 126, 22);
 		contentPane.add(lblNewLabel_1_4);
 		
 		txtSoLuong = new JTextField();
+		txtSoLuong.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		txtSoLuong.setEnabled(false);
 		txtSoLuong.setColumns(10);
-		txtSoLuong.setBounds(165, 223, 125, 20);
+		txtSoLuong.setBounds(279, 280, 147, 20);
 		contentPane.add(txtSoLuong);
 		
 		JButton btnXacNhan = new JButton("");
+		btnXacNhan.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnXacNhan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//DecimalFormat formatter = new DecimalFormat("0");
@@ -138,24 +152,26 @@ public class SuaSP extends JFrame {
 				
 			}
 		});
-		btnXacNhan.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-checkmark-25.png"));
+		btnXacNhan.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-checkmark-25.png"));
 		btnXacNhan.setBackground(new Color(0, 128, 192));
-		btnXacNhan.setBounds(182, 271, 42, 33);
+		btnXacNhan.setBounds(208, 349, 42, 33);
 		contentPane.add(btnXacNhan);
 		
 		JButton btnHuy = new JButton("");
-		btnHuy.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-close-20.png"));
+		btnHuy.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnHuy.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-close-20.png"));
 		btnHuy.setBackground(new Color(225, 38, 71));
-		btnHuy.setBounds(242, 271, 35, 33);
+		btnHuy.setBounds(336, 349, 35, 33);
 		contentPane.add(btnHuy);
 		
 		JButton btnAnh = new JButton("");
-		btnAnh.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-add-image-20.png"));
+		btnAnh.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-add-image-20.png"));
 		btnAnh.setBackground(new Color(0, 183, 183));
-		btnAnh.setBounds(436, 221, 79, 33);
+		btnAnh.setBounds(574, 320, 79, 33);
 		contentPane.add(btnAnh);
 		
 		JButton btnNewButton_2 = new JButton("");
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -170,8 +186,8 @@ public class SuaSP extends JFrame {
 			}
 		});
 		
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
-		btnNewButton_2.setBounds(516, 10, 45, 26);
+		btnNewButton_2.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-back-20.png"));
+		btnNewButton_2.setBounds(35, 23, 45, 26);
 		contentPane.add(btnNewButton_2);
 		
 		SanPhamModel spm = new SanPhamModel();
@@ -194,7 +210,7 @@ public class SuaSP extends JFrame {
 		    Image scaledImage = image.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
 		    ImageIcon scaledIcon = new ImageIcon(scaledImage);
 		    picture = new JLabel(scaledIcon);
-		    picture.setBounds(399, 63, 150, 150);
+		    picture.setBounds(522, 108, 160, 175);
 		    picture.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // Thêm đường viền cho JLabel
 		    picture.setHorizontalAlignment(JLabel.CENTER); // Căn giữa JLabel theo chiều ngang
 		    picture.setVerticalAlignment(JLabel.CENTER); // Căn giữa JLabel theo chiều dọc

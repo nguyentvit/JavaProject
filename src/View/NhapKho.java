@@ -50,26 +50,28 @@ public class NhapKho extends JFrame {
 //				});
 //	
 		cbbChon = new JComboBox();
+		cbbChon.setFont(new Font("Tahoma", Font.BOLD, 14));
 		cbbChon.setModel(new DefaultComboBoxModel(new String[] {"Nhà Sản Xuất", "Phân Loại SP"}));
-		cbbChon.setBounds(136, 47, 136, 21);
+		cbbChon.setBounds(208, 63, 136, 23);
 		contentPane.add(cbbChon);
 //		//cbbChon.setModel(new DefaultComboBoxModel(new String[] {"Nhà Sản Xuất", "Phân Loại SP"}));
 //		cbbChon.setBounds(136, 47, 136, 21);
 //		contentPane.add(cbbChon);
 //		
 		JLabel lblNewLabel = new JLabel("Thêm mới");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel.setBounds(43, 51, 73, 13);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel.setBounds(118, 64, 95, 21);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Tên ");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_1.setBounds(42, 91, 45, 13);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel_1.setBounds(119, 140, 45, 13);
 		contentPane.add(lblNewLabel_1);
 		SetCbb();
 		
 		txtTen = new JTextField();
-		txtTen.setBounds(136, 88, 136, 19);
+		txtTen.setFont(new Font("Tahoma", Font.BOLD, 15));
+		txtTen.setBounds(208, 135, 136, 23);
 		contentPane.add(txtTen);
 		txtTen.setColumns(10);
 		
@@ -85,8 +87,8 @@ public class NhapKho extends JFrame {
 				}
 			}
 		});
-		btnLuu.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-save-20.png"));
-		btnLuu.setBounds(141, 143, 53, 29);
+		btnLuu.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-save-20.png"));
+		btnLuu.setBounds(141, 191, 53, 29);
 		contentPane.add(btnLuu);
 		
 		JButton btnNewButton_1 = new JButton("");
@@ -102,8 +104,8 @@ public class NhapKho extends JFrame {
 				}
 			}
 		});
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-close-20.png"));
-		btnNewButton_1.setBounds(216, 143, 53, 29);
+		btnNewButton_1.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-close-20.png"));
+		btnNewButton_1.setBounds(285, 191, 53, 29);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnTrV = new JButton("");
@@ -121,8 +123,8 @@ public class NhapKho extends JFrame {
 			}
 			
 		});
-		btnTrV.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
-		btnTrV.setBounds(389, 10, 37, 29);
+		btnTrV.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-back-20.png"));
+		btnTrV.setBounds(10, 12, 37, 29);
 		contentPane.add(btnTrV);
 		
 	}

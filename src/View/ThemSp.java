@@ -31,10 +31,12 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.awt.event.ActionEvent;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.Font;
 
 public class ThemSp extends JFrame{
 	private JTextField txtTenSp;
@@ -52,60 +54,72 @@ public class ThemSp extends JFrame{
 		
 		
 		JLabel lblNewLabel = new JLabel("Loại sản phẩm");
-		lblNewLabel.setBounds(49, 27, 79, 22);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel.setBounds(126, 69, 110, 22);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nhà sản xuất");
-		lblNewLabel_1.setBounds(49, 59, 79, 22);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1.setBounds(126, 116, 110, 22);
 		getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Tên sản phẩm");
-		lblNewLabel_1_1.setBounds(49, 91, 79, 22);
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_1.setBounds(126, 167, 110, 22);
 		getContentPane().add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Giá nhập");
-		lblNewLabel_1_2.setBounds(49, 135, 79, 22);
+		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_2.setBounds(126, 214, 79, 22);
 		getContentPane().add(lblNewLabel_1_2);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("Giá bán");
-		lblNewLabel_1_3.setBounds(49, 175, 79, 22);
+		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_3.setBounds(126, 261, 79, 22);
 		getContentPane().add(lblNewLabel_1_3);
 		
 		JLabel lblNewLabel_1_4 = new JLabel("Số lượng");
-		lblNewLabel_1_4.setBounds(49, 217, 79, 22);
+		lblNewLabel_1_4.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_4.setBounds(126, 318, 79, 22);
 		getContentPane().add(lblNewLabel_1_4);
 		
 		cbbPhanLoai = new JComboBox();
-		cbbPhanLoai.setBounds(145, 27, 125, 22);
+		cbbPhanLoai.setFont(new Font("Tahoma", Font.BOLD, 13));
+		cbbPhanLoai.setBounds(295, 70, 150, 22);
 		getContentPane().add(cbbPhanLoai);
 		
 		cbbNhaSx = new JComboBox();
-		cbbNhaSx.setBounds(145, 59, 125, 22);
+		cbbNhaSx.setFont(new Font("Tahoma", Font.BOLD, 13));
+		cbbNhaSx.setBounds(295, 117, 150, 22);
 		getContentPane().add(cbbNhaSx);
 		
 		txtTenSp = new JTextField();
-		txtTenSp.setBounds(145, 98, 125, 20);
+		txtTenSp.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtTenSp.setBounds(295, 169, 150, 20);
 		getContentPane().add(txtTenSp);
 		txtTenSp.setColumns(10);
 		
 		txtGiaNhap = new JTextField();
+		txtGiaNhap.setFont(new Font("Tahoma", Font.BOLD, 13));
 		txtGiaNhap.setColumns(10);
-		txtGiaNhap.setBounds(145, 137, 125, 20);
+		txtGiaNhap.setBounds(295, 214, 150, 20);
 		getContentPane().add(txtGiaNhap);
 		
 		txtGiaBan = new JTextField();
+		txtGiaBan.setFont(new Font("Tahoma", Font.BOLD, 13));
 		txtGiaBan.setColumns(10);
-		txtGiaBan.setBounds(145, 177, 125, 20);
+		txtGiaBan.setBounds(295, 261, 150, 20);
 		getContentPane().add(txtGiaBan);
 		
 		txtSoLuong = new JTextField();
+		txtSoLuong.setFont(new Font("Tahoma", Font.BOLD, 13));
 		txtSoLuong.setColumns(10);
-		txtSoLuong.setBounds(145, 219, 125, 20);
+		txtSoLuong.setBounds(295, 318, 150, 20);
 		getContentPane().add(txtSoLuong);
 		
 		 btnXacNhan = new JButton("");
 		 btnXacNhan.setBackground(new Color(0, 128, 192));
-		 btnXacNhan.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-checkmark-25.png"));
+		 btnXacNhan.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-checkmark-25.png"));
 		 btnXacNhan.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
 		 		try {
@@ -116,12 +130,12 @@ public class ThemSp extends JFrame{
 				}
 		 	}
 		 });
-		btnXacNhan.setBounds(162, 267, 42, 33);
+		btnXacNhan.setBounds(195, 362, 42, 33);
 		getContentPane().add(btnXacNhan);
 		
 		JButton btnHuy = new JButton("");
 		btnHuy.setBackground(new Color(225, 38, 71));
-		btnHuy.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-close-20.png"));
+		btnHuy.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-close-20.png"));
 		btnHuy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -136,14 +150,14 @@ public class ThemSp extends JFrame{
 			}
 			
 		});
-		btnHuy.setBounds(222, 267, 35, 33);
+		btnHuy.setBounds(371, 362, 35, 33);
 		getContentPane().add(btnHuy);
 		
 		
 		
 		btnAnh = new JButton("");
 		btnAnh.setBackground(new Color(0, 183, 183));
-		btnAnh.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-add-image-20.png"));
+		btnAnh.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-add-image-20.png"));
 		btnAnh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -154,7 +168,7 @@ public class ThemSp extends JFrame{
 				}
 			}
 		});
-		btnAnh.setBounds(416, 217, 79, 33);
+		btnAnh.setBounds(602, 324, 79, 33);
 		getContentPane().add(btnAnh);
 		
 		btnNewButton = new JButton("");
@@ -172,8 +186,8 @@ public class ThemSp extends JFrame{
 				
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
-		btnNewButton.setBounds(503, 10, 45, 26);
+		btnNewButton.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-back-20.png"));
+		btnNewButton.setBounds(10, 10, 45, 26);
 		getContentPane().add(btnNewButton);
 		
 		
@@ -232,7 +246,7 @@ public class ThemSp extends JFrame{
 		    Image scaledImage = image.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
 		    ImageIcon scaledIcon = new ImageIcon(scaledImage);
 		    picture = new JLabel(scaledIcon);
-		    picture.setBounds(420, 60, 150, 150);
+		    picture.setBounds(500, 60, 200, 200);
 		    picture.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // Thêm đường viền cho JLabel
 		    picture.setHorizontalAlignment(JLabel.CENTER); // Căn giữa JLabel theo chiều ngang
 		    picture.setVerticalAlignment(JLabel.CENTER); // Căn giữa JLabel theo chiều dọc
@@ -289,6 +303,9 @@ public class ThemSp extends JFrame{
  			if(file != null)
  			{			
  				sp.setHinhAnh(Files.readAllBytes(file.toPath()));
+ 			}
+ 			else {
+ 				sp.setHinhAnh(Files.readAllBytes(Paths.get("D:\\java\\JavaDUAN\\JavaProject\\icons\\no image.png")));
  			}
  			spm.AddSanPham(sp);
  			JOptionPane.showMessageDialog(null,"Thêm sản phẩm thành công","Thông báo",JOptionPane.INFORMATION_MESSAGE);

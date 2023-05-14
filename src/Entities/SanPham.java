@@ -8,6 +8,7 @@ public class SanPham {
 	public double GiaNhap;
 	public double GiaBan;
 	public int SoLuong;
+	public boolean TrangThai;
 	public byte[] HinhAnh;
 	public String getMaSanPham() {
 		return MaSanPham;
@@ -39,6 +40,13 @@ public class SanPham {
 	public void setGiaNhap(double giaNhap) {
 		GiaNhap = giaNhap;
 	}
+	public boolean getTrangThai() {
+		return TrangThai;
+	}
+	public void setTrangThai(boolean tt) {
+		
+		TrangThai = tt;
+	}
 	public double getGiaBan() {
 		return GiaBan;
 	}
@@ -58,7 +66,7 @@ public class SanPham {
 		HinhAnh = hinhAnh;
 	}
 	public SanPham(String maSanPham, String maPhanLoai, String maNhaSanXuat, String tenSanPham, double giaNhap,
-			double giaBan, int soLuong, byte[] hinhAnh) {
+			double giaBan, int soLuong, byte[] hinhAnh, boolean trangThai) {
 		super();
 		MaSanPham = maSanPham;
 		MaPhanLoai = maPhanLoai;
@@ -68,6 +76,7 @@ public class SanPham {
 		GiaBan = giaBan;
 		SoLuong = soLuong;
 		HinhAnh = hinhAnh;
+		TrangThai = trangThai;
 	}
 	public SanPham() {
 		super();

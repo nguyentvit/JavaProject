@@ -14,6 +14,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import DocCsdl.DocCsdl;
 import Entities.MuaHang;
+import Entities.Nguoi;
 import Entities.SanPham;
 
 public class MuaHangModel {
@@ -32,6 +33,7 @@ public class MuaHangModel {
 		}
 		return MuaHangs;
 	}
+
 	public String TaoIdMuaHang() throws SQLException
 	{
 		String id = "";

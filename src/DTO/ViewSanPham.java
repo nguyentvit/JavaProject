@@ -10,11 +10,18 @@ public class ViewSanPham {
 	public double GiaNhap;
 	public double GiaBan;
 	public byte[] HinhAnh;
+	public boolean TrangThai;
 	public int getStt() {
 		return Stt;
 	}
 	public void setStt(int stt) {
 		Stt = stt;
+	}
+	public boolean getTrangThai() {
+		return TrangThai;
+	}
+	public void setTrangThai(boolean tt) {
+		TrangThai = tt;
 	}
 	public String getMaSanPham() {
 		return MaSanPham;
@@ -65,7 +72,7 @@ public class ViewSanPham {
 		HinhAnh = hinhAnh;
 	}
 	public ViewSanPham(int stt, String maSanPham, String tenSanPham, String tenNhaSanXuat, String tenPhanLoai,
-			int soLuong, double giaNhap, double giaBan, byte[] hinhAnh) {
+			int soLuong, double giaNhap, double giaBan, byte[] hinhAnh, boolean trangThai) {
 		super();
 		Stt = stt;
 		MaSanPham = maSanPham;
@@ -75,6 +82,7 @@ public class ViewSanPham {
 		SoLuong = soLuong;
 		GiaNhap = giaNhap;
 		GiaBan = giaBan;
+		TrangThai = trangThai;
 		HinhAnh = hinhAnh;
 	}
 	public ViewSanPham() {

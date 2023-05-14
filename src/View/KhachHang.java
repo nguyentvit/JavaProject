@@ -23,16 +23,17 @@ import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import java.awt.Font;
+import javax.swing.JLabel;
 
 public class KhachHang extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField txtTim;
 	private JTable table;
 	private DefaultTableModel Table;
 	public KhachHang() throws SQLException, IOException{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 663, 375);
+		setBounds(100, 100, 766, 470);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(196, 234, 251));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -40,17 +41,19 @@ public class KhachHang extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JComboBox cbbHang = new JComboBox();
-		cbbHang.setBounds(22, 47, 83, 21);
-		contentPane.add(cbbHang);
-		
-		JComboBox cbbDong = new JComboBox();
-		cbbDong.setBounds(115, 47, 83, 21);
-		contentPane.add(cbbDong);
-		
 		JButton btnTim = new JButton("");
-		btnTim.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-find-20.png"));
-		btnTim.setBounds(320, 47, 37, 29);
+		btnTim.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					loadData();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnTim.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-find-20.png"));
+		btnTim.setBounds(295, 119, 37, 29);
 		contentPane.add(btnTim);
 		
 		JButton btnSua = new JButton("");
@@ -73,25 +76,20 @@ public class KhachHang extends JFrame {
 				
 			}
 		});
-		btnSua.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-edit-20.png"));
-		btnSua.setBounds(495, 47, 37, 29);
+		btnSua.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-edit-20.png"));
+		btnSua.setBounds(582, 119, 50, 29);
 		contentPane.add(btnSua);
 		
-		JButton btnXoa = new JButton("");
-		btnXoa.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-delete-20.png"));
-		btnXoa.setBounds(542, 47, 37, 29);
-		contentPane.add(btnXoa);
-		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(22, 86, 604, 179);
+		scrollPane.setBounds(72, 179, 599, 231);
 		contentPane.add(scrollPane);
 		table = new JTable();
 		scrollPane.setViewportView(table);
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		textField.setBounds(208, 48, 96, 19);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtTim = new JTextField();
+		txtTim.setFont(new Font("Tahoma", Font.BOLD, 15));
+		txtTim.setBounds(104, 124, 146, 24);
+		contentPane.add(txtTim);
+		txtTim.setColumns(10);
 		
 		JButton btnTrV = new JButton("");
 		btnTrV.addActionListener(new ActionListener() {
@@ -108,9 +106,14 @@ public class KhachHang extends JFrame {
 			}
 			
 		});
-		btnTrV.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
-		btnTrV.setBounds(589, 47, 37, 29);
+		btnTrV.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-back-20.png"));
+		btnTrV.setBounds(24, 24, 50, 35);
 		contentPane.add(btnTrV);
+		
+		JLabel lblDanhSchKhch = new JLabel("DANH SÁCH KHÁCH HÀNG");
+		lblDanhSchKhch.setFont(new Font("Tahoma", Font.BOLD, 19));
+		lblDanhSchKhch.setBounds(253, 54, 265, 29);
+		contentPane.add(lblDanhSchKhch);
 		loadData();
 	}
 	private void loadData() throws SQLException
@@ -129,24 +132,41 @@ public class KhachHang extends JFrame {
 				//Table.addColumn("Địa chỉ nhận hàng");
 				NguoiModel nguoi = new NguoiModel();
 				int i = 1;
-				for (Nguoi Ng : nguoi.GetAllNguoi())
-				{
-					Table.addRow(new Object[]
-							{
-									i++,
-									Ng.getMaNguoi(),
-									Ng.getTenNguoi(),
-									Ng.getSdt()
-									
-							}
-							);
+				
+				if(txtTim.getText()=="") {
+					for (Nguoi Ng : nguoi.GetAllNguoi())
+					{
+						Table.addRow(new Object[]
+						{
+							i++,
+							Ng.getMaNguoi(),
+							Ng.getTenNguoi(),
+							Ng.getSdt()
+							
+						}
+						);
+					}
+				}
+				else {
+					for (Nguoi Ng : nguoi.SearchNguoi(txtTim.getText()))
+					{
+						Table.addRow(new Object[]
+						{
+							i++,
+							Ng.getMaNguoi(),
+							Ng.getTenNguoi(),
+							Ng.getSdt()
+							
+						}
+						);
+					}
 				}
 				table.setModel(Table);
 				table.getColumnModel().getColumn(1).setMinWidth(0);
 				table.getColumnModel().getColumn(1).setMaxWidth(0);
 
 				table.getTableHeader().setReorderingAllowed(false);
-				table.setRowHeight(50);
+				table.setRowHeight(35);
 				table.getTableHeader().setReorderingAllowed(false);
 				
 				

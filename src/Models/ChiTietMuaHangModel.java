@@ -33,6 +33,22 @@ public class ChiTietMuaHangModel {
 		}
 		return ChiTietMuaHangs;
 	}
+	public List<ChiTietMuaHang>GetAllCTByMaMH(String maMH) throws SQLException
+	{
+		List<ChiTietMuaHang>ChiTietMuaHangs = new ArrayList<ChiTietMuaHang>();
+		Connection con = DocCsdl.getConnect(); 
+		Statement stt = con.createStatement();
+		String query = "select * from ChiTietMuaHang where MaMuaHang = " + maMH ;
+		ResultSet result = stt.executeQuery(query);
+		while(result.next())
+		{
+			int SoLuong = Integer.parseInt(result.getString("SoLuong"));
+			double DonGia = Double.parseDouble(result.getString("DonGia"));
+			
+			ChiTietMuaHangs.add(new ChiTietMuaHang(result.getString("MaChiTietMuaHang"),result.getString("MaMuaHang"),result.getString("MaSanPham"),SoLuong,DonGia));
+		}
+		return ChiTietMuaHangs;
+	}
 	public String TaoIdCTMuaHang() throws SQLException
 	{
 		String id = "";

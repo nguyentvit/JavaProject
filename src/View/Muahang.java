@@ -44,7 +44,7 @@ public class Muahang extends JFrame {
 
 	public Muahang()  throws SQLException, IOException{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 711, 420);
+		setBounds(100, 100, 828, 485);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(199, 243, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -53,41 +53,41 @@ public class Muahang extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("CHỌN SẢN PHẨM");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel.setBounds(298, 10, 120, 30);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblNewLabel.setBounds(305, 44, 157, 30);
 		contentPane.add(lblNewLabel);
 		
 		JScrollPane tableThem = new JScrollPane();
-		tableThem.setBounds(90, 50, 556, 140);
+		tableThem.setBounds(121, 117, 556, 140);
 		contentPane.add(tableThem);
 		table = new JTable();
 		tableThem.setViewportView(table);
 		
 		table1 = new JTable();
 		JScrollPane tableXoa = new JScrollPane();
-		tableXoa.setBounds(90, 219, 556, 110);
+		tableXoa.setBounds(121, 286, 556, 110);
 		contentPane.add(tableXoa);
 		tableXoa.setViewportView(table1);
 		
 		 btnThem = new JButton("");
 		
-		btnThem.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-buy-25.png"));
-		btnThem.setBounds(16, 75, 57, 33);
+		btnThem.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-buy-25.png"));
+		btnThem.setBounds(56, 171, 50, 41);
 		contentPane.add(btnThem);
 		
 		 btnXoa = new JButton("");
-		
-		btnXoa.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-delete-25.png"));
-		btnXoa.setBounds(23, 242, 48, 30);
+		 btnXoa.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-close-20.png"));
+		btnXoa.setBounds(56, 321, 48, 41);
 		contentPane.add(btnXoa);
 		btnNewButton_2 = new JButton("Xác nhận\r\n");
+		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton_2.setBackground(new Color(255, 127, 80));
-		btnNewButton_2.setBounds(306, 346, 112, 21);
+		btnNewButton_2.setBounds(349, 406, 147, 32);
 		contentPane.add(btnNewButton_2);
 		
 		btnTrV = new JButton("");
-		btnTrV.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
-		btnTrV.setBounds(609, 16, 37, 29);
+		btnTrV.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-back-20.png"));
+		btnTrV.setBounds(21, 17, 48, 29);
 		contentPane.add(btnTrV);
 		loadData();
 		AddControl();
@@ -286,19 +286,21 @@ public class Muahang extends JFrame {
 		Table1.addColumn("Hình ảnh");
 		for(ViewSanPham sp : Viewsp.GetAllViewSanPham())
 		{	
-			DecimalFormat formatter = new DecimalFormat("0");
-			Table.addRow(new Object[]
-					{
-							sp.getStt(),
-							sp.getMaSanPham(),
-							sp.getTenSanPham(),
-							sp.getTenNhaSanXuat(),
-							sp.getTenPhanLoai(),
-							sp.getSoLuong(),
-							formatter.format(sp.getGiaNhap()),
-							formatter.format(sp.getGiaBan()),
-							sp.getHinhAnh()
-					});
+			if(sp.getTrangThai()) {
+				DecimalFormat formatter = new DecimalFormat("0");
+				Table.addRow(new Object[]
+						{
+								sp.getStt(),
+								sp.getMaSanPham(),
+								sp.getTenSanPham(),
+								sp.getTenNhaSanXuat(),
+								sp.getTenPhanLoai(),
+								sp.getSoLuong(),
+								formatter.format(sp.getGiaNhap()),
+								formatter.format(sp.getGiaBan()),
+								sp.getHinhAnh()
+						});
+			}
 		}
 		table.setModel(Table);
 		table.getColumnModel().getColumn(1).setMinWidth(0);
@@ -310,7 +312,7 @@ public class Muahang extends JFrame {
 		
 
 		table.getTableHeader().setReorderingAllowed(false);
-		table.setRowHeight(50);
+		table.setRowHeight(40);
 		table.getTableHeader().setReorderingAllowed(false);
 		table.getColumnModel().getColumn(8).setCellRenderer(new ImageRender());
 		
@@ -324,7 +326,7 @@ public class Muahang extends JFrame {
 		
 
 		table1.getTableHeader().setReorderingAllowed(false);
-		table1.setRowHeight(50);
+		table1.setRowHeight(40);
 		table1.getTableHeader().setReorderingAllowed(false);
 		table1.getColumnModel().getColumn(8).setCellRenderer(new ImageRender());
 	}

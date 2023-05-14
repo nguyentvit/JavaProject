@@ -25,14 +25,15 @@ public class SanPhamModel {
 			double GiaNhap = Double.parseDouble(result.getString("Gia"));
 			double GiaBan = Double.parseDouble(result.getString("GiaBan"));
 			int SoLuong = Integer.parseInt(result.getString("SoLuong"));
-			SanPhams.add(new SanPham(result.getString("MaSanPham"),result.getString("MaPhanLoai"),result.getString("MaNhaSanXuat"),result.getString("TenSanPham"),GiaNhap,GiaBan,SoLuong,result.getBytes("HinhAnh")));
+			
+			SanPhams.add(new SanPham(result.getString("MaSanPham"),result.getString("MaPhanLoai"),result.getString("MaNhaSanXuat"),result.getString("TenSanPham"),GiaNhap,GiaBan,SoLuong,result.getBytes("HinhAnh"),result.getBoolean("TrangThai")));
 		}
 		return SanPhams;
 	}
 	public void AddSanPham(SanPham sp) throws SQLException
 	{
 		PreparedStatement prepare = DocCsdl.getConnect().prepareStatement(
-				"insert into SanPham values(?,?,?,?,?,?,?,?)"
+				"insert into SanPham values(?,?,?,?,?,?,?,?,?)"
 				);
 		prepare.setString(1, sp.getMaSanPham());
 		prepare.setString(2, sp.getMaPhanLoai());
@@ -42,6 +43,7 @@ public class SanPhamModel {
 		prepare.setInt(6, sp.getSoLuong());
 		prepare.setBytes(7, sp.getHinhAnh());
 		prepare.setDouble(8,sp.getGiaBan());
+		prepare.setBoolean(9, true);
 		prepare.executeUpdate();
 		
 	}
@@ -95,6 +97,33 @@ public class SanPhamModel {
 		// TODO Auto-generated method stub
 		
 	}
+	public void SuaTrangThai(SanPham sp)throws SQLException {
+		PreparedStatement prepare = DocCsdl.getConnect().prepareStatement(
+				"update SanPham set TrangThai = ? where MaSanPham = ?"
+				);
+		if(sp.getTrangThai()==true) {
+			prepare.setInt(1, 0);
+		}
+		else {
+			prepare.setInt(1, 1);
+		}
+//		prepare.setInt(1, tt);
+		prepare.setString(2, sp.getMaSanPham());
+		prepare.executeUpdate();
+		// TODO Auto-generated method stub
+		
+	}
+	// Thay đổi trạng thái của một sản phẩm
+    public void changeProductStatus(int productId, boolean newStatus) {
+        // Tìm sản phẩm có id tương ứng
+//        for(SanPham p : products) {
+//            if(p.getId() == productId) {
+//                // Cập nhật trạng thái mới cho sản phẩm
+//                p.setStatus(newStatus);
+//                break;
+//            }
+//        }
+    }
 	public void ThemSL(SanPham sp) throws SQLException
 	{
 		PreparedStatement prepare = DocCsdl.getConnect().prepareStatement(

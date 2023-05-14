@@ -66,6 +66,31 @@ public class NguoiModel {
 		}
 		return id;
 	}
+	public List<Nguoi> SearchNguoi(String sdt) throws SQLException
+	{
+		List<Nguoi>Nguois = new ArrayList<Nguoi>();
+		Connection con = DocCsdl.getConnect(); 
+		Statement stt = con.createStatement();
+		String query = "SELECT * FROM Nguoi WHERE Sdt LIKE '%" + sdt + "%'";
+		ResultSet result = stt.executeQuery(query);
+		int i = 1;
+		while(result.next())
+		{						
+			Nguois.add(new Nguoi(result.getString("MaNguoi"),result.getString("TenNguoi"),result.getString("Sdt")));
+		}
+		return Nguois;
+	}
+	public Nguoi getNguoiByIdSDT(String sdt) throws SQLException
+	{
+		for (Nguoi ng : GetAllNguoi())
+		{
+			if (ng.getSdt().equals(sdt))
+			{
+				return ng;
+			}
+		}
+		return null;
+	}
 	public void AddNguoi(Nguoi ng) throws SQLException
 	{
 		PreparedStatement prepare = DocCsdl.getConnect().prepareStatement(

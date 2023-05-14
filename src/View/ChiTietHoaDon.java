@@ -51,8 +51,8 @@ import javax.swing.JTable;
 public class ChiTietHoaDon extends JFrame {
 	private List<ViewSanPham>SanPhamMua;
 	private JPanel contentPane;
+	private JTextField txtSDT;
 	private JTextField txtTen;
-	private JTextField txtSdt;
 	private JTextField txtTongTien;
 	private JTable table;
 	private JDateChooser date1;
@@ -81,7 +81,7 @@ public class ChiTietHoaDon extends JFrame {
 	public ChiTietHoaDon(List<ViewSanPham> mylist) throws SQLException, IOException{
 		this.SanPhamMua = mylist;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 739, 421);
+		setBounds(100, 100, 840, 478);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(185, 248, 251));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -91,56 +91,61 @@ public class ChiTietHoaDon extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("CHI TIẾT HÓA ĐƠN");
 		lblNewLabel.setBackground(new Color(205, 250, 252));
-		lblNewLabel.setIcon(new ImageIcon("E:\\JAVA.project\\JAVA_Team\\JavaProject\\icons\\icons8-paid-bill-20.png"));
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel.setBounds(281, 10, 153, 38);
+		lblNewLabel.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-paid-bill-20.png"));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel.setBounds(325, 38, 204, 38);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Ngày ");
-		lblNewLabel_1.setBounds(50, 162, 45, 13);
+		lblNewLabel_1.setFont(new Font("Dialog", Font.BOLD, 14));
+		lblNewLabel_1.setBounds(75, 202, 45, 23);
 		contentPane.add(lblNewLabel_1);
 		
-		txtTen = new JTextField();
-		txtTen.setBounds(123, 72, 96, 19);
-		contentPane.add(txtTen);
-		txtTen.setColumns(10);
+		txtSDT = new JTextField();
+		txtSDT.setBounds(185, 119, 125, 19);
+		contentPane.add(txtSDT);
+		txtSDT.setColumns(10);
 		
-		txtSdt = new JTextField();
-		txtSdt.setColumns(10);
-		txtSdt.setBounds(123, 113, 96, 19);
-		contentPane.add(txtSdt);
+		txtTen = new JTextField();
+		txtTen.setColumns(10);
+		txtTen.setBounds(185, 160, 125, 19);
+		contentPane.add(txtTen);
 		
 		 date1 = new JDateChooser();
-		date1.setBounds(123, 162, 96, 19);
+		date1.setBounds(185, 202, 125, 19);
 		contentPane.add(date1);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("SĐT");
-		lblNewLabel_1_3.setBounds(50, 116, 45, 13);
+		JLabel lblNewLabel_1_3 = new JLabel("Tên KH");
+		lblNewLabel_1_3.setFont(new Font("Dialog", Font.BOLD, 14));
+		lblNewLabel_1_3.setBounds(75, 160, 71, 17);
 		contentPane.add(lblNewLabel_1_3);
 		
 		JLabel lblNewLabel_1_4 = new JLabel("Tổng tiền");
-		lblNewLabel_1_4.setBounds(50, 246, 45, 13);
+		lblNewLabel_1_4.setFont(new Font("Dialog", Font.BOLD, 14));
+		lblNewLabel_1_4.setBounds(74, 293, 81, 19);
 		contentPane.add(lblNewLabel_1_4);
 		
 		txtTongTien = new JTextField();
+		txtTongTien.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtTongTien.setEnabled(false);
 		txtTongTien.setColumns(10);
-		txtTongTien.setBounds(123, 242, 96, 19);
+		txtTongTien.setBounds(186, 293, 125, 19);
 		contentPane.add(txtTongTien);
 		
-		JLabel lblNewLabel_1_5 = new JLabel("Tên KH\r\n");
-		lblNewLabel_1_5.setBounds(50, 72, 45, 13);
+		JLabel lblNewLabel_1_5 = new JLabel("SĐT");
+		lblNewLabel_1_5.setFont(new Font("Dialog", Font.BOLD, 14));
+		lblNewLabel_1_5.setBounds(74, 120, 85, 13);
 		contentPane.add(lblNewLabel_1_5);
 		
 		 btnNewButton = new JButton("");
 		
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-checkmark-25.png"));
-		btnNewButton.setBounds(280, 322, 45, 38);
+		btnNewButton.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-checkmark-25.png"));
+		btnNewButton.setBounds(116, 366, 45, 38);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-close-20.png"));
-		btnNewButton_1.setBounds(335, 322, 45, 38);
+		btnNewButton_1.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-close-20.png"));
+		btnNewButton_1.setBounds(239, 367, 45, 38);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnTrV = new JButton("");
@@ -157,12 +162,12 @@ public class ChiTietHoaDon extends JFrame {
 				}
 			}
 		});
-		btnTrV.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
-		btnTrV.setBounds(657, 20, 37, 29);
+		btnTrV.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-back-20.png"));
+		btnTrV.setBounds(50, 22, 37, 29);
 		contentPane.add(btnTrV);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(294, 72, 400, 213);
+		scrollPane.setBounds(348, 119, 400, 213);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -170,22 +175,46 @@ public class ChiTietHoaDon extends JFrame {
 		
 		txtDiaChi = new JTextField();
 		txtDiaChi.setColumns(10);
-		txtDiaChi.setBounds(123, 202, 96, 19);
+		txtDiaChi.setBounds(185, 249, 125, 19);
 		contentPane.add(txtDiaChi);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Địa chỉ nhận hàng");
-		lblNewLabel_1_1.setBounds(50, 205, 63, 13);
+		JLabel lblNewLabel_1_1 = new JLabel("Nơi nhận hàng");
+		lblNewLabel_1_1.setFont(new Font("Dialog", Font.BOLD, 14));
+		lblNewLabel_1_1.setBounds(75, 248, 135, 23);
 		contentPane.add(lblNewLabel_1_1);
+		
+		JButton btnTim = new JButton("");
+		btnTim.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				NguoiModel nguoi = new NguoiModel();
+				Nguoi ng;
+				try {
+					ng = nguoi.getNguoiByIdSDT(txtSDT.getText());
+					if(ng != null) {
+						txtTen.setText(ng.getTenNguoi());
+					}
+					else {
+						
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnTim.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-find-20.png"));
+		btnTim.setBounds(313, 115, 25, 23);
+		contentPane.add(btnTim);
 		LoadForm();
 		AddControl();
 	}
 	private boolean CheckHopLe()
 	{
-		if(txtSdt.getText() == "")
+		if(txtTen.getText() == "")
 		{
 			return false;
 		}
-		if(txtTen.getText() == "")
+		if(txtSDT.getText() == "")
 		{
 			return false;
 		}
@@ -211,10 +240,16 @@ public class ChiTietHoaDon extends JFrame {
 					try {
 						NguoiModel ngm = new NguoiModel();
 						Nguoi ng = new Nguoi();
-						ng.setMaNguoi(ngm.TaoIdNguoi());
-						ng.setTenNguoi(txtTen.getText());
-						ng.setSdt(txtSdt.getText());
-						ngm.AddNguoi(ng);
+						if(ngm.getNguoiByIdSDT(txtSDT.getText()) == null) {
+							ng.setMaNguoi(ngm.TaoIdNguoi());
+							ng.setTenNguoi(txtTen.getText());
+							ng.setSdt(txtSDT.getText());
+							ngm.AddNguoi(ng);
+						}
+						else {
+							ng = ngm.getNguoiByIdSDT(txtSDT.getText());
+							
+						}
 						MuaHangModel mhm = new MuaHangModel();
 						MuaHang mh = new MuaHang();
 						mh.setMaMuaHang(mhm.TaoIdMuaHang());

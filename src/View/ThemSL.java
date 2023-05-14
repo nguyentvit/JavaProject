@@ -41,17 +41,19 @@ public class ThemSL extends JFrame {
 		contentPane.setLayout(null);
 		
 		textField = new JTextField();
-		textField.setBounds(157, 64, 96, 19);
+		textField.setFont(new Font("Tahoma", Font.BOLD, 15));
+		textField.setBounds(212, 77, 146, 23);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("THÊM SỐ LƯỢNG SẢN PHẨM");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel.setBounds(113, 23, 184, 13);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel.setBounds(117, 25, 250, 22);
 		contentPane.add(lblNewLabel);
 		
 		txtThemSL = new JTextField();
-		txtThemSL.setBounds(157, 113, 96, 19);
+		txtThemSL.setFont(new Font("Tahoma", Font.BOLD, 15));
+		txtThemSL.setBounds(212, 126, 146, 23);
 		contentPane.add(txtThemSL);
 		txtThemSL.setColumns(10);
 		
@@ -82,21 +84,23 @@ public class ThemSL extends JFrame {
 				
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-checkmark-25.png"));
-		btnNewButton.setBounds(158, 166, 38, 33);
+		btnNewButton.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-checkmark-25.png"));
+		btnNewButton.setBounds(178, 195, 38, 33);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-close-20.png"));
-		btnNewButton_1.setBounds(206, 166, 38, 34);
+		btnNewButton_1.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-close-20.png"));
+		btnNewButton_1.setBounds(274, 195, 38, 34);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("Tên SP");
-		lblNewLabel_1.setBounds(76, 67, 45, 13);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1.setBounds(117, 77, 75, 19);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Số lượng ");
-		lblNewLabel_2.setBounds(76, 116, 45, 13);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_2.setBounds(117, 119, 84, 33);
 		contentPane.add(lblNewLabel_2);
 		
 		JButton btnNewButton_2 = new JButton("");
@@ -106,8 +110,8 @@ public class ThemSL extends JFrame {
 			}
 			
 		});
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\HP VICTUS\\Downloads\\icons8-back-20.png"));
-		btnNewButton_2.setBounds(381, 10, 45, 26);
+		btnNewButton_2.setIcon(new ImageIcon("D:\\java\\JavaDUAN\\JavaProject\\icons\\icons8-back-20.png"));
+		btnNewButton_2.setBounds(10, 10, 45, 26);
 		contentPane.add(btnNewButton_2);
 		SanPhamModel spm = new SanPhamModel();
 		SanPham sp = new SanPham();
